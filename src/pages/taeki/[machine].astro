@@ -1,0 +1,31 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CategoryMarker from '../../components/CategoryMarker.astro';
+import { url } from '../../lib/paths';
+import { visible, slug } from '../../lib/publishing';
+export async function getStaticPaths() { return (await getCollection('machines')).filter(visible).map(entry=>({params:{machine:slug(entry.id)},props:{entry}})); }
+const { entry } = Astro.props;
+const p = entry.data;
+const s = (await getEntry('site','is'))!.data;
+const category = (await getEntry('categories',`is/${p.category}`))!.data;
+const machines = (await getCollection('machines')).filter(visible);
+const related = (p.related.length ? p.related.map(id=>machines.find(m=>slug(m.id)===id)).filter(Boolean) : machines.filter(m=>m.id!==entry.id && m.data.category===p.category)).slice(0,3);
+const { Content } = await render(entry);
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}>
+    <p class="category-name" slot="meta"><CategoryMarker category={p.category}/><a href={url(`/taeki/#${p.category}`)}>{category.title}</a></p>
+    {!p.modelConfirmed && <p class="meta">{s.labels.modelPending}</p>}
+  </PageIntro>
+  <section class="content-section detail-pair" aria-labelledby="h-specs">
+    <div><div class="section-title"><h2 id="h-specs">{s.labels.specs}</h2></div><dl class="specs"><div><dt>{s.labels.quantity}</dt><dd>{p.quantity}</dd></div><div><dt>{s.labels.location}</dt><dd>{p.location}</dd></div>{p.specs.map(row=><div><dt>{row.label}</dt><dd>{row.value}{row.note && <span class="spec-note">{row.note}</span>}</dd></div>)}</dl>{!p.specs.length && <p class="note">{s.labels.factsPending}</p>}</div>
+    <div><div class="section-title"><h2>{s.labels.suitable}</h2></div><ul class="plain-list">{p.uses.map(use=><li>{use}</li>)}</ul><div class="prose"><Content /></div></div>
+  </section>
+  <section class="content-section detail-pair" aria-labelledby="h-before">
+    <div><div class="section-title"><h2 id="h-before">{s.labels.before}</h2><span class="meta">{s.labels.draft}</span></div><ul class="checklist">{p.checklist.map(item=><li>{item}</li>)}</ul><p class="note">{p.policy}</p></div>
+    <div><div class="section-title"><h2>{s.labels.courses}</h2></div><a class="more" href={url('/namskeid/')}>{s.labels.courseLink} <span aria-hidden="true">→</span></a></div>
+  </section>
+  <section class="content-section" aria-labelledby="h-related"><div class="section-title"><h2 id="h-related">{s.labels.related}</h2><a class="more" href={url('/taeki/')}>{s.labels.allEquipment} <span aria-hidden="true">→</span></a></div><ul class="related-list">{related.map(m=>m && <li><a href={url(`/taeki/${slug(m.id)}/`)}>{m.data.title}</a></li>)}</ul></section>
+</SiteLayout>

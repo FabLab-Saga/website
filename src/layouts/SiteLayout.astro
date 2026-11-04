@@ -1,0 +1,43 @@
+---
+import { getEntry } from 'astro:content';
+import Logo from '../components/Logo.astro';
+import { footerBand } from '../lib/identity';
+import { url } from '../lib/paths';
+import '../styles/a.css';
+import font from '../assets/fonts/Bricolage.woff2?url';
+interface Props { title: string; description: string; class?: string }
+const { title, description, class: bodyClass = '' } = Astro.props;
+const s = (await getEntry('site', 'is'))!.data;
+---
+<!doctype html>
+<html lang="is">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" href="data:," />
+  <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
+</head>
+<body class={bodyClass}>
+  <a class="skip" href="#efni">{s.labels.skip}</a>
+  <header class="top">
+    <Logo label={s.labels.logo} />
+    <nav class="nav desktop-nav" aria-label={s.labels.nav}>
+      <ul>{s.nav.map((item) => <li><a href={url(item.href)} aria-current={Astro.url.pathname.startsWith(url(item.href)) ? 'page' : undefined}>{item.label}</a></li>)}</ul>
+    </nav>
+    <details class="mobile-menu"><summary>{s.labels.menu}</summary><nav class="nav" aria-label={s.labels.nav}><ul>{s.nav.map((item)=><li><a href={url(item.href)} aria-current={Astro.url.pathname.startsWith(url(item.href)) ? 'page' : undefined}>{item.label}</a></li>)}</ul></nav></details>
+  </header>
+  <main id="efni"><slot /></main>
+  <footer class="foot">
+    <div class="foot-band" aria-hidden="true">{footerBand.map(([shape, colour]) => <span class:list={['deco',shape,`c-${colour}`]} />)}</div>
+    <div class="foot-grid">
+      <div class="foot-brand"><Logo label={s.labels.logo} /><p class="foot-name">{s.visit.location}<br />{s.footer.institution}</p></div>
+      <p>{s.labels.email}: {s.visit.email}<br />{s.labels.phone}: {s.visit.phone}</p>
+      <ul class="foot-partners">{s.partners.map((p) => <li>{p.name}</li>)}</ul>
+      <p class="foot-note">{s.footer.imageNote}</p>
+    </div>
+  </footer>
+</body>
+</html>

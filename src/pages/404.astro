@@ -1,0 +1,9 @@
+---
+import { getEntry } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { url } from '../lib/paths';
+const s = (await getEntry('site', 'is'))!.data;
+---
+<SiteLayout title={s.labels.notFound} description={s.labels.notFoundText}>
+  <section class="not-found"><h1>{s.labels.notFound}</h1><p>{s.labels.notFoundText}</p><a href={url('/')}>{s.labels.homeLink}</a></section>
+</SiteLayout>

@@ -1,0 +1,6 @@
+---
+import { categoryStyle } from '../lib/identity';
+interface Props { category: string }
+const style = categoryStyle[Astro.props.category];
+---
+<span class:list={['mk',style.shape,`c-${style.colour}`]} aria-hidden="true" />

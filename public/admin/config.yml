@@ -1,0 +1,989 @@
+# Generated from src/lib/content-model.mjs by npm run cms:sync.
+# Set backend.base_url when the institution-owned auth Worker exists.
+# Sveltia uses its native local-repository picker, not Decap local_backend.
+backend:
+  name: github
+  repo: FabLab-Saga/website
+  branch: main
+  base_url: https://auth-not-configured.invalid
+publish_mode: editorial_workflow
+media_folder: src/assets/uploads
+public_folder: /src/assets/uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 2000000
+      transformations:
+        raster_image:
+          format: webp
+          width: 2048
+          height: 2048
+          quality: 85
+collections:
+  - name: site
+    label: Vefurinn
+    files:
+      - name: is
+        label: Íslenska
+        file: src/content/site/is.yaml
+        fields:
+          - name: name
+            label: Heiti smiðju
+            required: true
+            widget: string
+          - name: nav
+            label: Aðalvalmynd
+            required: true
+            widget: list
+            fields:
+              - name: label
+                label: Texti tengils
+                required: true
+                widget: string
+              - name: href
+                label: Slóð
+                required: true
+                widget: string
+                pattern:
+                  - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+                  - Athugaðu snið gildisins.
+          - name: labels
+            label: Sameiginlegir textar
+            required: true
+            widget: object
+            fields:
+              - name: skip
+                label: Hoppa í efni
+                required: true
+                widget: string
+              - name: nav
+                label: Heiti valmyndar
+                required: true
+                widget: string
+              - name: menu
+                label: Opna valmynd
+                required: true
+                widget: string
+              - name: logo
+                label: Heiti merkistengils
+                required: true
+                widget: string
+              - name: visit
+                label: Heimsókn
+                required: true
+                widget: string
+              - name: hours
+                label: Opnunartími
+                required: true
+                widget: string
+              - name: where
+                label: Hvar
+                required: true
+                widget: string
+              - name: access
+                label: Aðgangur
+                required: true
+                widget: string
+              - name: contact
+                label: Hafa samband
+                required: true
+                widget: string
+              - name: email
+                label: Netfang
+                required: true
+                widget: string
+              - name: phone
+                label: Sími
+                required: true
+                widget: string
+              - name: opens
+                label: Opnar
+                required: true
+                widget: string
+              - name: draft
+                label: Drög
+                required: true
+                widget: string
+              - name: newsKind
+                label: Frétt
+                required: true
+                widget: string
+              - name: courseKind
+                label: Námskeið
+                required: true
+                widget: string
+              - name: eventKind
+                label: Viðburður
+                required: true
+                widget: string
+              - name: notFound
+                label: Síða fannst ekki
+                required: true
+                widget: string
+              - name: notFoundText
+                label: Texti villusíðu
+                required: true
+                widget: text
+              - name: homeLink
+                label: Tengill á forsíðu
+                required: true
+                widget: string
+              - name: equipment
+                label: Heiti búnaðarsíðu
+                required: true
+                widget: string
+              - name: categories
+                label: Flokkar
+                required: true
+                widget: string
+              - name: inventory
+                label: Tækjalisti
+                required: true
+                widget: string
+              - name: specs
+                label: Tæknilegar upplýsingar
+                required: true
+                widget: string
+              - name: quantity
+                label: Fjöldi
+                required: true
+                widget: string
+              - name: location
+                label: Rými
+                required: true
+                widget: string
+              - name: suitable
+                label: Hentar fyrir
+                required: true
+                widget: string
+              - name: before
+                label: Áður en þú byrjar
+                required: true
+                widget: string
+              - name: courses
+                label: Námskeið
+                required: true
+                widget: string
+              - name: courseLink
+                label: Tengill á námskeið
+                required: true
+                widget: string
+              - name: related
+                label: Tengd tæki
+                required: true
+                widget: string
+              - name: allEquipment
+                label: Allur búnaður
+                required: true
+                widget: string
+              - name: factsPending
+                label: Óstaðfestar tæknilýsingar
+                required: true
+                widget: string
+              - name: modelPending
+                label: Óstaðfest gerð
+                required: true
+                widget: string
+              - name: projectCategoryPending
+                label: Óskráður verkefnisflokkur
+                required: true
+                widget: string
+              - name: example
+                label: Dæmi
+                required: true
+                widget: string
+              - name: maker
+                label: Höfundur
+                required: true
+                widget: string
+              - name: projectMachines
+                label: Tæki í verkefni
+                required: true
+                widget: string
+              - name: projectMachinesEmpty
+                label: Óskráð tæki í verkefni
+                required: true
+                widget: string
+              - name: projectBack
+                label: Tengill á verkefnasafn
+                required: true
+                widget: string
+              - name: newsBack
+                label: Til baka í fréttir
+                required: true
+                widget: string
+              - name: date
+                label: Dagsetning
+                required: true
+                widget: string
+              - name: time
+                label: Tími
+                required: true
+                widget: string
+              - name: seats
+                label: Pláss
+                required: true
+                widget: string
+              - name: language
+                label: Tungumál
+                required: true
+                widget: string
+              - name: signup
+                label: Skráning
+                required: true
+                widget: string
+              - name: requirements
+                label: Forkröfur
+                required: true
+                widget: string
+              - name: courseBack
+                label: Til baka í námskeið
+                required: true
+                widget: string
+          - name: visit
+            label: Upplýsingar fyrir heimsókn
+            required: true
+            widget: object
+            fields:
+              - name: hours
+                label: Opnunartími smiðjunnar
+                required: true
+                widget: string
+              - name: location
+                label: Staðsetning
+                required: true
+                widget: string
+              - name: access
+                label: Aðgangur
+                required: true
+                widget: string
+              - name: accessDraft
+                label: Aðgangsreglur eru drög
+                required: true
+                widget: boolean
+              - name: email
+                label: Netfang
+                required: true
+                widget: string
+              - name: phone
+                label: Sími
+                required: true
+                widget: string
+              - name: more
+                label: Tengill
+                required: true
+                widget: object
+                fields:
+                  - name: label
+                    label: Texti tengils
+                    required: true
+                    widget: string
+                  - name: href
+                    label: Slóð
+                    required: true
+                    widget: string
+                    pattern:
+                      - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+                      - Athugaðu snið gildisins.
+          - name: footer
+            label: Síðufótur
+            required: true
+            widget: object
+            fields:
+              - name: institution
+                label: Stofnun
+                required: true
+                widget: string
+              - name: imageNote
+                label: Upplýsingar um myndir
+                required: true
+                widget: text
+          - name: partners
+            label: Samstarfsaðilar
+            required: true
+            widget: list
+            fields:
+              - name: name
+                label: Heiti
+                required: true
+                widget: string
+  - name: pages
+    label: Síður
+    folder: src/content/pages/is
+    create: false
+    delete: false
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Titill
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: published
+        label: Birta
+        required: true
+        widget: boolean
+      - name: hero
+        label: Upphaf forsíðu
+        required: false
+        widget: object
+        fields:
+          - name: lead
+            label: Inngangur
+            required: true
+            widget: text
+          - name: opening
+            label: Opnunardagur
+            required: true
+            widget: string
+      - name: about
+        label: Um smiðjuna
+        required: false
+        widget: object
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: true
+            widget: string
+          - name: paragraphs
+            label: Málsgreinar
+            required: true
+            widget: list
+            field:
+              name: value
+              label: Texti
+              required: true
+              widget: text
+          - name: usersTitle
+            label: Fyrirsögn um notendur
+            required: true
+            widget: string
+          - name: usersText
+            label: Texti um notendur
+            required: true
+            widget: text
+          - name: image
+            label: Mynd
+            required: true
+            widget: object
+            fields:
+              - name: src
+                label: Mynd
+                required: true
+                widget: image
+                pattern:
+                  - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+                  - Veldu mynd úr myndasafninu.
+                media_library:
+                  config:
+                    max_file_size: 2000000
+              - name: alt
+                label: Myndlýsing
+                required: true
+                widget: string
+      - name: equipment
+        label: Búnaður
+        required: false
+        widget: object
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: true
+            widget: string
+          - name: summary
+            label: Samantekt með {units} og {categories}
+            required: true
+            widget: string
+          - name: more
+            label: Tengill
+            required: true
+            widget: object
+            fields:
+              - name: label
+                label: Texti tengils
+                required: true
+                widget: string
+              - name: href
+                label: Slóð
+                required: true
+                widget: string
+                pattern:
+                  - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+                  - Athugaðu snið gildisins.
+      - name: news
+        label: Fréttir á forsíðu
+        required: false
+        widget: object
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: true
+            widget: string
+          - name: more
+            label: Tengill
+            required: true
+            widget: object
+            fields:
+              - name: label
+                label: Texti tengils
+                required: true
+                widget: string
+              - name: href
+                label: Slóð
+                required: true
+                widget: string
+                pattern:
+                  - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+                  - Athugaðu snið gildisins.
+          - name: featured
+            label: Valdar færslur
+            required: true
+            widget: list
+            fields:
+              - name: collection
+                label: Safn
+                required: true
+                widget: select
+                options:
+                  - news
+                  - courses
+              - name: entry
+                label: Auðkenni færslu
+                required: true
+                widget: string
+      - name: partners
+        label: Samstarf
+        required: false
+        widget: object
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: true
+            widget: string
+          - name: text
+            label: Texti
+            required: true
+            widget: text
+      - name: image
+        label: Mynd
+        required: false
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: imageCaption
+        label: Myndatexti
+        required: false
+        widget: string
+      - name: listTitle
+        label: Fyrirsögn lista
+        required: false
+        widget: string
+      - name: emptyText
+        label: Texti þegar safn er tómt
+        required: false
+        widget: string
+      - name: blocks
+        label: Upplýsingar
+        required: false
+        max: 5
+        widget: list
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: false
+            widget: string
+          - name: text
+            label: Texti
+            required: true
+            widget: text
+          - name: draft
+            label: Drög
+            required: true
+            widget: boolean
+      - name: links
+        label: Tenglar
+        required: false
+        widget: list
+        fields:
+          - name: label
+            label: Texti tengils
+            required: true
+            widget: string
+          - name: href
+            label: Slóð
+            required: true
+            widget: string
+            pattern:
+              - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+              - Athugaðu snið gildisins.
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+  - name: machines
+    label: Tæki
+    folder: src/content/machines/is
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Titill
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: published
+        label: Birta
+        required: true
+        widget: boolean
+      - name: category
+        label: Flokkur
+        required: true
+        widget: select
+        options:
+          - laser
+          - fraesi
+          - prent
+          - rafeinda
+          - skurdur
+          - formmotun
+          - textill
+          - hitapressur
+          - skanni
+      - name: quantity
+        label: Fjöldi
+        required: true
+        widget: number
+        value_type: int
+        min: 1
+      - name: modelConfirmed
+        label: Gerð staðfest
+        required: true
+        widget: boolean
+      - name: location
+        label: Rými
+        required: true
+        widget: string
+      - name: image
+        label: Mynd
+        required: true
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: imageCaption
+        label: Myndatexti
+        required: true
+        widget: string
+      - name: specs
+        label: Staðfestar tæknilýsingar
+        required: false
+        max: 4
+        widget: list
+        fields:
+          - name: label
+            label: Heiti
+            required: true
+            widget: string
+          - name: value
+            label: Gildi
+            required: true
+            widget: string
+          - name: source
+            label: Heimild
+            required: true
+            widget: string
+          - name: note
+            label: Skýring við gildi
+            required: false
+            widget: string
+      - name: source
+        label: Heimildir og athugasemdir ritstjóra
+        required: true
+        widget: text
+      - name: uses
+        label: Hentar fyrir
+        required: true
+        max: 4
+        widget: list
+        field:
+          name: value
+          label: Efni eða notkun
+          required: true
+          widget: string
+      - name: checklist
+        label: Áður en þú byrjar
+        required: true
+        max: 5
+        widget: list
+        field:
+          name: value
+          label: Atriði
+          required: true
+          widget: text
+      - name: related
+        label: Tengd tæki
+        required: false
+        max: 3
+        widget: list
+        field:
+          name: value
+          label: Auðkenni tækis
+          required: true
+          widget: string
+      - name: policy
+        label: Reglur og aðgangur
+        required: true
+        widget: text
+      - name: policyDraft
+        label: Drög að reglum
+        required: true
+        widget: hidden
+        default: true
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+  - name: categories
+    label: Flokkar
+    folder: src/content/categories/is
+    create: false
+    delete: false
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Heiti flokks
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: image
+        label: Mynd
+        required: false
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+  - name: courses
+    label: Námskeið
+    folder: src/content/courses/is
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Titill
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: published
+        label: Birta
+        required: true
+        widget: boolean
+      - name: date
+        label: Dagsetning
+        required: true
+        widget: string
+      - name: image
+        label: Mynd
+        required: true
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: imageCaption
+        label: Myndatexti
+        required: true
+        widget: string
+      - name: category
+        label: Flokkur
+        required: true
+        widget: select
+        options:
+          - laser
+          - fraesi
+          - prent
+          - rafeinda
+          - skurdur
+          - formmotun
+          - textill
+          - hitapressur
+          - skanni
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+      - name: time
+        label: Tími
+        required: true
+        widget: string
+      - name: seats
+        label: Pláss
+        required: true
+        widget: string
+      - name: language
+        label: Tungumál
+        required: true
+        widget: string
+      - name: signup
+        label: Slóð
+        required: false
+        widget: string
+        pattern:
+          - ^(\/(?!\/)|#[a-zA-Z]|https:\/\/|mailto:|tel:)
+          - Athugaðu snið gildisins.
+      - name: signupText
+        label: Staða skráningar
+        required: true
+        widget: string
+      - name: policy
+        label: Reglur og aðgangur
+        required: true
+        widget: text
+      - name: policyDraft
+        label: Drög að reglum
+        required: true
+        widget: hidden
+        default: true
+  - name: projects
+    label: Smíðað í Sögu
+    folder: src/content/projects/is
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Titill
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: published
+        label: Birta
+        required: true
+        widget: boolean
+      - name: date
+        label: Dagsetning
+        required: true
+        widget: string
+      - name: image
+        label: Mynd
+        required: true
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: imageCaption
+        label: Myndatexti
+        required: true
+        widget: string
+      - name: category
+        label: Flokkur
+        required: false
+        widget: select
+        options:
+          - laser
+          - fraesi
+          - prent
+          - rafeinda
+          - skurdur
+          - formmotun
+          - textill
+          - hitapressur
+          - skanni
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+      - name: maker
+        label: Höfundur
+        required: true
+        widget: string
+      - name: example
+        label: Dæmi, ekki raunverulegt verkefni
+        required: true
+        widget: boolean
+      - name: machines
+        label: Tæki
+        required: false
+        widget: list
+        field:
+          name: value
+          label: Auðkenni tækis
+          required: true
+          widget: string
+      - name: sections
+        label: Verkefnalýsing
+        required: true
+        max: 3
+        widget: list
+        fields:
+          - name: title
+            label: Fyrirsögn
+            required: true
+            widget: string
+          - name: text
+            label: Texti
+            required: true
+            widget: text
+  - name: news
+    label: Fréttir
+    folder: src/content/news/is
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Titill
+        required: true
+        widget: string
+      - name: description
+        label: Lýsing
+        required: true
+        widget: text
+      - name: published
+        label: Birta
+        required: true
+        widget: boolean
+      - name: date
+        label: Dagsetning
+        required: true
+        widget: string
+      - name: image
+        label: Mynd
+        required: true
+        widget: object
+        fields:
+          - name: src
+            label: Mynd
+            required: true
+            widget: image
+            pattern:
+              - ^(?:/src/assets/uploads/)?[a-zA-Z0-9_-]+\.(webp|png|jpe?g)$
+              - Veldu mynd úr myndasafninu.
+            media_library:
+              config:
+                max_file_size: 2000000
+          - name: alt
+            label: Myndlýsing
+            required: true
+            widget: string
+      - name: imageCaption
+        label: Myndatexti
+        required: true
+        widget: string
+      - name: category
+        label: Flokkur
+        required: true
+        widget: select
+        options:
+          - laser
+          - fraesi
+          - prent
+          - rafeinda
+          - skurdur
+          - formmotun
+          - textill
+          - hitapressur
+          - skanni
+      - name: body
+        label: Meginmál
+        required: false
+        widget: markdown
+      - name: kind
+        label: Tegund færslu
+        required: true
+        widget: select
+        options:
+          - news
+          - events

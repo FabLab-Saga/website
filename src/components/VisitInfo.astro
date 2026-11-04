@@ -1,0 +1,13 @@
+---
+import { getEntry } from 'astro:content';
+import { url } from '../lib/paths';
+interface Props { more?: boolean }
+const s = (await getEntry('site', 'is'))!.data;
+const { more = false } = Astro.props;
+---
+<dl class="info">
+  <div><dt>{s.labels.hours}</dt><dd>{s.visit.hours}</dd></div>
+  <div><dt>{s.labels.where}</dt><dd>{s.visit.location}</dd></div>
+  <div><dt>{s.labels.access}{s.visit.accessDraft && <span class="meta inline-draft"> · {s.labels.draft}</span>}</dt><dd>{s.visit.access}</dd></div>
+  <div><dt>{s.labels.contact}</dt><dd>{s.visit.email}<br />{s.visit.phone}</dd>{more && <dd class="visit-more"><a href={url(s.visit.more.href)}>{s.visit.more.label} <span aria-hidden="true">→</span></a></dd>}</div>
+</dl>

@@ -1,0 +1,80 @@
+name: Fab Lab SAGA
+nav:
+  - label: Smiðjan
+    href: /um/
+  - label: Búnaður
+    href: /taeki/
+  - label: Námskeið
+    href: /namskeid/
+  - label: Smíðað í Sögu
+    href: /smidad/
+  - label: Fréttir
+    href: /frettir/
+  - label: Heimsókn
+    href: /heimsokn/
+labels:
+  skip: Fara beint í efni
+  nav: Aðalvalmynd
+  logo: Fab Lab SAGA, forsíða
+  visit: Heimsókn
+  hours: Opnunartími
+  where: Hvar
+  access: Aðgangur
+  contact: Hafa samband
+  email: Netfang
+  phone: Sími
+  opens: Opnar
+  draft: Drög
+  newsKind: Frétt
+  courseKind: Námskeið
+  eventKind: Viðburður
+  notFound: Síða fannst ekki
+  notFoundText: Slóðin er ekki til.
+  homeLink: Fara á forsíðu
+  menu: Valmynd
+  equipment: Það sem við höfum
+  categories: Flokkar
+  inventory: Tækin
+  specs: Tæknilegar upplýsingar
+  quantity: Fjöldi
+  location: Rými
+  suitable: Hentar fyrir
+  before: Áður en þú byrjar
+  courses: Námskeið
+  courseLink: Sjá námskeið
+  related: Tengd tæki
+  allEquipment: Allur búnaður
+  factsPending: "[Frekari tæknilýsingar til staðfestingar]"
+  modelPending: "[Nákvæm gerð til staðfestingar]"
+  projectCategoryPending: "[Flokkur]"
+  example: Dæmi
+  maker: Höfundur
+  projectMachines: Tæki í verkefni
+  projectMachinesEmpty: "[Listi yfir tæki sem voru notuð í verkefninu]"
+  projectBack: Til baka í Smíðað í Sögu
+  newsBack: Til baka í fréttir
+  date: Dagsetning
+  time: Tími
+  seats: Pláss
+  language: Tungumál
+  signup: Skráning
+  requirements: Forkröfur
+  courseBack: Öll námskeið
+visit:
+  hours: "[Opnunartími]"
+  location: Saga, Hagatorg 1, 107 Reykjavík
+  access: "[Hverjir hafa aðgang]"
+  accessDraft: true
+  email: "[netfang]@hi.is"
+  phone: "[Sími]"
+  more:
+    label: Nánar um heimsókn
+    href: /heimsokn/
+footer:
+  institution: Háskóli Íslands
+  imageNote: Myndirnar eru tölvugerðar myndir af smiðjunni.
+partners:
+  - name: Menntavísindasvið HÍ
+  - name: Verkfræði- og náttúruvísindasvið HÍ
+  - name: Mixtúra, sköpunar- og tækniver skóla- og frístundasviðs Reykjavíkurborgar
+  - name: Fab Lab Ísland

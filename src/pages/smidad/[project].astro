@@ -1,0 +1,20 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import { url } from '../../lib/paths';
+import { visible, slug } from '../../lib/publishing';
+export async function getStaticPaths(){return (await getCollection('projects')).filter(visible).map(entry=>({params:{project:slug(entry.id)},props:{entry}}));}
+const {entry}=Astro.props;
+const p=entry.data;
+const s=(await getEntry('site','is'))!.data;
+const cat=p.category ? (await getEntry('categories',`is/${p.category}`))!.data : undefined;
+const machines=(await getCollection('machines')).filter(m=>visible(m)&&p.machines.includes(slug(m.id)));
+const {Content}=await render(entry);
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}><p class="meta" slot="meta">{p.example && <>{s.labels.example} · </>}{cat?.title ?? s.labels.projectCategoryPending}</p><p>{p.maker} · {p.date}</p></PageIntro>
+  <section class="content-section detail-pair" aria-labelledby="h-project">{p.sections.map((section,i)=><div><div class="section-title"><h2 id={i===0?'h-project':undefined}>{section.title}</h2></div><p>{section.text}</p></div>)}</section>
+  {entry.body?.trim() && <div class="content-section prose"><Content/></div>}
+  <section class="content-section" aria-labelledby="h-machines"><div class="section-title"><h2 id="h-machines">{s.labels.projectMachines}</h2></div>{!machines.length && <p>{s.labels.projectMachinesEmpty}</p>}<ul class="related-list">{machines.map(m=><li><a href={url(`/taeki/${slug(m.id)}/`)}>{m.data.title}</a></li>)}</ul><p><a class="more" href={url('/smidad/')}>{s.labels.projectBack} <span aria-hidden="true">→</span></a></p></section>
+</SiteLayout>

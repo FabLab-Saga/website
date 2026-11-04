@@ -1,0 +1,13 @@
+---
+import { getEntry } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { url } from '../lib/paths';
+const p = (await getEntry('pages','is/um'))!.data;
+const s = (await getEntry('site','is'))!.data;
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}/>
+  <div class="content-section detail-pair about-copy">{p.blocks!.map(b=><div>{b.title && <div class="section-title"><h2>{b.title}</h2></div>}<p class="reading-text">{b.text}</p></div>)}</div>
+  <section class="content-section" aria-labelledby="h-partners"><div class="section-title"><h2 id="h-partners">{p.partners!.title}</h2></div><p class="reading-text">{p.partners!.text}</p><ul class="partner-list">{s.partners.map(partner=><li>{partner.name}</li>)}</ul><ul class="text-links">{p.links!.map(link=><li><a class="more" href={url(link.href)}>{link.label} <span aria-hidden="true">→</span></a></li>)}</ul></section>
+</SiteLayout>

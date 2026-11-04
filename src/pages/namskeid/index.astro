@@ -1,0 +1,21 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import { visible, slug } from '../../lib/publishing';
+import { url } from '../../lib/paths';
+const p=(await getEntry('pages','is/namskeid'))!.data;
+const s=(await getEntry('site','is'))!.data;
+const courses=(await getCollection('courses')).filter(visible);
+const categories=Object.fromEntries((await getCollection('categories')).map(c=>[slug(c.id),c.data]));
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} composition />
+  <section class="content-section" aria-labelledby="h-courses"><div class="section-title"><h2 id="h-courses">{p.listTitle}</h2></div>{!courses.some(c=>c.data.published) && <p class="empty-state">{p.emptyText}</p>}
+    <div class="course-list">{courses.map(c=><article class="course-row">
+      <h3><a href={url(`/namskeid/${slug(c.id)}/`)}>{c.data.title}</a></h3>
+      <p class="course-meta">{c.data.date} · {categories[c.data.category].title} · {c.data.seats} · {c.data.language}</p>
+      {!c.data.published && <p class="meta">{s.labels.draft}</p>}
+    </article>)}</div>
+  </section>
+</SiteLayout>

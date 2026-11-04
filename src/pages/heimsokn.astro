@@ -1,0 +1,13 @@
+---
+import { getEntry } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import VisitInfo from '../components/VisitInfo.astro';
+const p = (await getEntry('pages','is/heimsokn'))!.data;
+const s = (await getEntry('site','is'))!.data;
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}/>
+  <section class="content-section" aria-labelledby="h-visit"><h2 id="h-visit" class="vh">{s.labels.visit}</h2><VisitInfo /></section>
+  <section class="content-section visit-blocks" aria-labelledby="h-details">{p.blocks!.map((block,i)=><div><h2 id={i===0?'h-details':undefined}>{block.title}{block.draft && <span class="meta inline-draft"> · {s.labels.draft}</span>}</h2><p>{block.text}</p></div>)}</section>
+</SiteLayout>

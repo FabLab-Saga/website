@@ -1,0 +1,17 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import LightCard from '../../components/LightCard.astro';
+import { visible, slug } from '../../lib/publishing';
+const p=(await getEntry('pages','is/smidad'))!.data;
+const s=(await getEntry('site','is'))!.data;
+const projects=(await getCollection('projects')).filter(visible);
+const categories=Object.fromEntries((await getCollection('categories')).map(c=>[slug(c.id),c.data]));
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} composition/>
+  <section class="content-section" aria-labelledby="h-projects"><div class="section-title"><h2 id="h-projects">{p.listTitle}</h2></div>{!projects.some(p=>!p.data.example) && <p class="empty-state">{p.emptyText}</p>}
+    <div class="cards">{projects.map((entry,i)=><LightCard title={entry.data.title} image={entry.data.image} href={`/smidad/${slug(entry.id)}/`} index={i} meta={`${entry.data.example?s.labels.example+' · ':''}${entry.data.maker} · ${entry.data.category ? categories[entry.data.category].title : s.labels.projectCategoryPending}`} />)}</div>
+  </section>
+</SiteLayout>

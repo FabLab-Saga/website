@@ -1,0 +1,18 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Photo from '../../components/Photo.astro';
+import { url } from '../../lib/paths';
+import { visible, slug } from '../../lib/publishing';
+export async function getStaticPaths(){return (await getCollection('news')).filter(visible).map(entry=>({params:{news:slug(entry.id)},props:{entry}}));}
+const {entry}=Astro.props;
+const p=entry.data;
+const s=(await getEntry('site','is'))!.data;
+const {Content}=await render(entry);
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <article class="article"><p class="meta">{p.kind==='events'?s.labels.eventKind:s.labels.newsKind} · {p.date}{!p.published && <> · {s.labels.draft}</>}</p><h1>{p.title}</h1><p class="lede">{p.description}</p>
+    <figure class="art-fig r-tl"><Photo {...p.image} sizes="(min-width:1100px) 1000px, 100vw" eager/><figcaption>{p.imageCaption}</figcaption></figure>
+    <div class="art-body prose"><Content /></div><p><a class="more" href={url('/frettir/')}>{s.labels.newsBack} <span aria-hidden="true">→</span></a></p>
+  </article>
+</SiteLayout>

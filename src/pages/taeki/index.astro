@@ -1,0 +1,20 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CategoryTiles from '../../components/CategoryTiles.astro';
+import { categoryOrder } from '../../lib/identity';
+import { url } from '../../lib/paths';
+import { visible, slug } from '../../lib/publishing';
+const p = (await getEntry('pages','is/taeki'))!.data;
+const s = (await getEntry('site','is'))!.data;
+const machines = (await getCollection('machines')).sort((a,b)=>a.data.title.localeCompare(b.data.title,'is'));
+const categories = Object.fromEntries((await getCollection('categories')).map(c=>[slug(c.id),c.data]));
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} composition />
+  <section class="content-section" aria-labelledby="h-categories"><h2 id="h-categories" class="vh">{s.labels.categories}</h2><CategoryTiles descriptions /></section>
+  <section class="content-section" aria-labelledby="h-inventory"><div class="section-title"><h2 id="h-inventory">{p.listTitle}</h2></div>
+    <div class="inventory-grid">{categoryOrder.map(id=><article id={id} class="inventory-group" tabindex="-1"><h3>{categories[id].title}</h3><ul class="machine-list">{machines.filter(m=>m.data.category===id).map(m=><li>{visible(m)?<a href={url(`/taeki/${slug(m.id)}/`)}>{m.data.title}</a>:<span>{m.data.title}</span>}<span class="quantity">×{m.data.quantity}</span></li>)}</ul></article>)}</div>
+  </section>
+</SiteLayout>

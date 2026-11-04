@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import CategoryMarker from './CategoryMarker.astro';
+import { categoryOrder } from '../lib/identity';
+import { url } from '../lib/paths';
+interface Props { descriptions?: boolean }
+const { descriptions = false } = Astro.props;
+const categories = await getCollection('categories');
+const machines = await getCollection('machines');
+const data = Object.fromEntries(categories.map(c=>[c.id.replace(/^is\//,''),c.data]));
+---
+<ul class:list={['cats',{'category-tiles':descriptions}]}>{categoryOrder.map(id=><li><a href={url(`/taeki/#${id}`)}>
+  <CategoryMarker category={id}/><span class="cn">{data[id].title}</span><span class="cq">{machines.filter(m=>m.data.category===id).reduce((n,m)=>n+m.data.quantity,0)}</span>
+  {descriptions && <span class="category-description">{data[id].description}</span>}
+</a></li>)}</ul>

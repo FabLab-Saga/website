@@ -1,0 +1,10 @@
+---
+import Photo from './Photo.astro';
+import { url } from '../lib/paths';
+interface Props { category: string; title: string; image: { src: string; alt: string }; shape: string; span?: string }
+const { category, title, image, shape, span = '' } = Astro.props;
+---
+<a class:list={['tile', shape, span]} href={url(`/taeki/#${category}`)}>
+  <Photo {...image} sizes="(min-width: 900px) 25vw, 50vw" eager />
+  <span class="lbl">{title}</span>
+</a>

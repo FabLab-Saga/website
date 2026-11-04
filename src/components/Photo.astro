@@ -1,0 +1,7 @@
+---
+import { Image } from 'astro:assets';
+import { imageSource } from '../lib/paths';
+interface Props { src: string; alt: string; sizes?: string; eager?: boolean }
+const { src, alt, sizes = '100vw', eager = false } = Astro.props;
+---
+<Image src={imageSource(src)} alt={alt} widths={[480,800,1600]} sizes={sizes} format="webp" loading={eager ? 'eager' : 'lazy'} decoding="async" />

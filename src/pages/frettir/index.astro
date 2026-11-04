@@ -1,0 +1,16 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import LightCard from '../../components/LightCard.astro';
+import { visible, slug } from '../../lib/publishing';
+const p=(await getEntry('pages','is/frettir'))!.data;
+const s=(await getEntry('site','is'))!.data;
+const news=(await getCollection('news')).filter(visible);
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} composition/>
+  <section class="content-section" aria-labelledby="h-news"><div class="section-title"><h2 id="h-news">{p.listTitle}</h2></div>{!news.some(n=>n.data.published) && <p class="empty-state">{p.emptyText}</p>}
+    <div class="cards">{news.map((entry,i)=><LightCard title={entry.data.title} image={entry.data.image} index={i} href={`/frettir/${slug(entry.id)}/`} meta={`${entry.data.kind==='events'?s.labels.eventKind:s.labels.newsKind} · ${entry.data.date}${!entry.data.published?' · '+s.labels.draft:''}`}/>)}</div>
+  </section>
+</SiteLayout>

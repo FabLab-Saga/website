@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+private-assets/
+.env*
+evidence/**/*.pdf
+evidence/**/*.txt
+evidence/**/*.html
+evidence/**/*.log
+evidence/**/cms-session.json
+evidence/caddy-*.json
+.DS_Store

@@ -1,0 +1,7 @@
+---
+import logo from '../../public/brand/fablab-saga.svg?raw';
+import { url } from '../lib/paths';
+interface Props { label: string }
+const { label } = Astro.props;
+---
+<a class="mark" href={url('/')} aria-label={label}><span aria-hidden="true" set:html={logo} /></a>

@@ -1,0 +1,29 @@
+---
+title: Um smiðjuna
+description: Fab Lab SAGA er ný sköpunar- og tæknismiðja sem er að rísa í Sögu og verður hún fyrsta
+  háskóla Fab Lab sinnar tegundar á Íslandi.
+published: true
+image:
+  src: /src/assets/uploads/r10.webp
+  alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
+imageCaption: Tölvugerð mynd af smiðjunni.
+blocks:
+  - text: Fab Lab SAGA er stafræn smiðja með aðgang að öflugum búnaði til stafrænnar framleiðslu og
+      frumgerðasmíði. Smiðjan styður við kjarnastarf háskólans, nám, kennslu og rannsóknir, og opnar
+      um leið ný tækifæri til nýsköpunar, tilraunastarfs og þverfaglegs samstarfs.
+    draft: false
+  - title: Notendur
+    text: Fab Lab SAGA mun þjóna fjölbreyttum hópi notenda, nemendum HÍ, kennurum, rannsakendum og
+      samstarfsaðilum. Þar mætast verkfræðileg nálgun, tæknileg færni og skapandi hugsun sem nýtist
+      í skóla- og frístundastarfi. Smiðjan byggir þannig brú milli háskólasamfélags og vettvangs
+      menntunar.
+    draft: false
+partners:
+  title: Samstarf
+  text: Smiðjan er hluti af alþjóðlegu Fab Lab neti sem styður við samstarf, miðlun þekkingar og áframhaldandi þróun.
+links:
+  - label: Það sem við höfum
+    href: /taeki/
+  - label: Heimsókn
+    href: /heimsokn/
+---

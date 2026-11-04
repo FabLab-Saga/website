@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import remarkContent from '../src/lib/remark-content.mjs';
+process.env.PREVIEW_BASE='/fablab-saga/v3/';
+const tree={type:'root',children:[{type:'link',url:'/taeki/prusa/'},{type:'link',url:'https://example.org/'},{type:'link',url:'#section'}]};
+remarkContent()(tree);
+assert.equal(tree.children[0].url,'/fablab-saga/v3/taeki/prusa/');
+assert.equal(tree.children[1].url,'https://example.org/');
+assert.equal(tree.children[2].url,'#section');
+for(const bad of [{type:'html',value:'<script />'}, {type:'image',url:'https://example.org/a.png'},{type:'table'},...['javascript:alert(1)','data:text/html,x','//outside.org/','relative-page/'].map(url=>({type:'link',url}))])assert.throws(()=>remarkContent()({type:'root',children:[bad]}));
+process.env.PREVIEW_BASE='/';const root={type:'link',url:'/taeki/'};remarkContent()(root);assert.equal(root.url,'/taeki/');
+console.log('PASS: Markdown links respect both bases; HTML, inline images, tables and unsafe/relative links rejected.');

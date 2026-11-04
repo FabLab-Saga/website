@@ -1,0 +1,73 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import HeroTile from '../components/HeroTile.astro';
+import Photo from '../components/Photo.astro';
+import VisitInfo from '../components/VisitInfo.astro';
+import CategoryTiles from '../components/CategoryTiles.astro';
+import { categoryOrder } from '../lib/identity';
+import { url } from '../lib/paths';
+const s = (await getEntry('site', 'is'))!.data;
+const p = (await getEntry('pages', 'is/home'))!.data;
+const cats = await getCollection('categories');
+const machines = await getCollection('machines');
+const byId = Object.fromEntries(cats.map(c => [c.id.replace(/^is\//, ''), c.data]));
+const summary = p.equipment!.summary.replace('{units}', String(machines.reduce((n,m) => n + m.data.quantity,0))).replace('{categories}', String(categoryOrder.length));
+const candidates = await Promise.all(p.news!.featured.map(async (item) => {
+  const entry = await getEntry(item.collection, `is/${item.entry}`);
+  if (!entry) throw new Error(`Missing featured entry: ${item.collection}/${item.entry}`);
+  return { data: entry.data, href: `/${item.collection === 'courses' ? 'namskeid' : 'frettir'}/${item.entry}/`, label: item.collection === 'courses' ? s.labels.courseKind : s.labels.newsKind };
+}));
+// Draft examples belong to this private preview, never the root-site build.
+const featured = candidates.filter(item => item.data.published || import.meta.env.BASE_URL !== '/' || import.meta.env.DEV);
+---
+<SiteLayout title={p.title} description={p.description} class="home">
+  <section class="wall" aria-labelledby="h-saga">
+    <span class="deco half c-blue w2" aria-hidden="true" />
+    <HeroTile category="laser" title={byId.laser.title} image={byId.laser.image!} shape="r-tl" />
+    <span class="deco sq c-pink" aria-hidden="true" />
+    <HeroTile category="prent" title={byId.prent.title} image={byId.prent.image!} shape="half" span="w2" />
+    <span class="deco r-br c-yellow" aria-hidden="true" />
+    <span class="deco r-bl c-green" aria-hidden="true" />
+    <div class="wall-text">
+      <h1 id="h-saga">{p.title}</h1>
+      <p class="lede">{p.hero!.lead}</p>
+      <p class="opens">{s.labels.opens} {p.hero!.opening} · {s.visit.location}</p>
+    </div>
+    <HeroTile category="fraesi" title={byId.fraesi.title} image={byId.fraesi.image!} shape="r-tr" span="w2 h2" />
+    <span class="deco circle c-pink" aria-hidden="true" />
+    <span class="deco r-tl c-orange" aria-hidden="true" />
+    <HeroTile category="textill" title={byId.textill.title} image={byId.textill.image!} shape="circle" />
+    <span class="deco sq c-red" aria-hidden="true" />
+  </section>
+
+  <section id="heimsokn" class="band-info" aria-labelledby="h-heimsokn">
+    <h2 id="h-heimsokn" class="vh">{s.labels.visit}</h2>
+    <VisitInfo more />
+  </section>
+
+  <section id="smidjan" class="about" aria-labelledby="h-about">
+    <div class="about-img arch"><Photo {...p.about!.image} sizes="(min-width: 900px) 40vw, 100vw" /></div>
+    <div class="about-text">
+      <h2 id="h-about">{p.about!.title}</h2>
+      {p.about!.paragraphs.map((text) => <p>{text}</p>)}
+      <h3>{p.about!.usersTitle}</h3><p>{p.about!.usersText}</p>
+    </div>
+  </section>
+
+  <section class="machines" aria-labelledby="h-bunadur">
+    <div class="sec-head"><h2 id="h-bunadur">{p.equipment!.title}</h2><p>{summary}</p><a class="more" href={url(p.equipment!.more.href)}>{p.equipment!.more.label} <span aria-hidden="true">→</span></a></div>
+    <CategoryTiles />
+  </section>
+
+  <section id="frettir" class="news" aria-labelledby="h-frettir">
+    <div class="sec-head"><h2 id="h-frettir">{p.news!.title}</h2><a class="more" href={url(p.news!.more.href)}>{p.news!.more.label} <span aria-hidden="true">→</span></a></div>
+    <div class="cards">{featured.map((item, i) => <article class="card">
+      <div class:list={['card-img', i % 2 === 0 ? 'r-tl' : 'r-tr']}><Photo {...item.data.image} sizes="(min-width: 900px) 30vw, 100vw" /></div>
+      <p class="meta">{item.label} · {item.data.date}</p>
+      <h3><a href={url(item.href)}>{item.data.title}</a></h3>
+    </article>)}</div>
+  </section>
+
+  <section class="partners" aria-labelledby="h-samstarf"><h2 id="h-samstarf">{p.partners!.title}</h2><p>{p.partners!.text}</p><ul>{s.partners.map(partner => <li>{partner.name}</li>)}</ul></section>
+</SiteLayout>

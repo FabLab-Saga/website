@@ -1,0 +1,26 @@
+[
+  {
+    "name": "source-sans-3",
+    "url": "https://cdn.jsdelivr.net/fontsource/fonts/source-sans-3:vf@5.3.1/latin-wght-normal.woff2",
+    "local": "./fonts/source-sans-3.woff2",
+    "license_url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/source-sans-3@5.3.1/LICENSE",
+    "sha256": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5",
+    "size": 28872
+  },
+  {
+    "name": "noto-mono",
+    "url": "https://cdn.jsdelivr.net/fontsource/fonts/noto-mono@5.3.0/latin-400-normal.woff2",
+    "local": "./fonts/noto-mono.woff2",
+    "license_url": "https://cdn.jsdelivr.net/npm/@fontsource/noto-mono@5.3.0/LICENSE",
+    "sha256": "2787a2983d94072a2c6262b1992a2642519800a889bd90ca1042d04a89852d58",
+    "size": 59316
+  },
+  {
+    "name": "material-symbols-outlined",
+    "url": "https://cdn.jsdelivr.net/fontsource/fonts/material-symbols-outlined:vf@5.3.9/latin-wght-normal.woff2",
+    "local": "./fonts/material-symbols-outlined.woff2",
+    "license_url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/material-symbols-outlined@5.3.9/LICENSE",
+    "sha256": "4c3d64af8aaefc068020112f7c84f00a9f567c6059aeb539d74417cfaccbccaf",
+    "size": 756400
+  }
+]

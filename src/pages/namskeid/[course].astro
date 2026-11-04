@@ -1,0 +1,19 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CategoryMarker from '../../components/CategoryMarker.astro';
+import { url } from '../../lib/paths';
+import { visible, slug } from '../../lib/publishing';
+export async function getStaticPaths(){return (await getCollection('courses')).filter(visible).map(entry=>({params:{course:slug(entry.id)},props:{entry}}));}
+const {entry}=Astro.props;
+const p=entry.data;
+const s=(await getEntry('site','is'))!.data;
+const cat=(await getEntry('categories',`is/${p.category}`))!.data;
+const {Content}=await render(entry);
+---
+<SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}><p class="category-name" slot="meta"><CategoryMarker category={p.category}/><span>{cat.title}</span></p>{!p.published && <p class="meta">{s.labels.draft}</p>}</PageIntro>
+  <section class="content-section detail-pair" aria-labelledby="h-signup"><div><dl class="specs"><div><dt>{s.labels.date}</dt><dd>{p.date}</dd></div><div><dt>{s.labels.time}</dt><dd>{p.time}</dd></div><div><dt>{s.labels.seats}</dt><dd>{p.seats}</dd></div><div><dt>{s.labels.language}</dt><dd>{p.language}</dd></div></dl></div><div><div class="section-title"><h2 id="h-signup">{s.labels.signup}</h2></div>{p.signup?<a href={url(p.signup)}>{p.signupText}</a>:<p>{p.signupText}</p>}<div class="prose"><Content /></div></div></section>
+  <section class="content-section" aria-labelledby="h-requirements"><div class="section-title"><h2 id="h-requirements">{s.labels.requirements}</h2><span class="meta">{s.labels.draft}</span></div><p>{p.policy}</p><p><a class="more" href={url('/namskeid/')}>{s.labels.courseBack} <span aria-hidden="true">→</span></a></p></section>
+</SiteLayout>

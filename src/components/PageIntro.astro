@@ -1,0 +1,10 @@
+---
+import Photo from './Photo.astro';
+interface Props { title: string; description: string; image?: { src:string; alt:string }; caption?: string; composition?: boolean }
+const { title, description, image, caption, composition = false } = Astro.props;
+---
+<header class:list={['page-intro',{'has-art':image || composition}]}>
+  <div class="intro-text"><slot name="meta" /><h1>{title}</h1><p class="lede">{description}</p><slot /></div>
+  {image && <figure class="intro-figure"><div class="intro-mask"><Photo {...image} sizes="(min-width: 900px) 42vw, 100vw" eager /></div>{caption && <figcaption>{caption}</figcaption>}</figure>}
+  {composition && <div class="inner-wall" aria-hidden="true"><span class="deco half c-blue span2"/><span class="deco r-br c-yellow"/><span class="deco r-tl c-pink"/><span class="deco sq c-orange"/><span class="deco circle c-green"/></div>}
+</header>
