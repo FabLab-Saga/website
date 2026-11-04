@@ -10,3 +10,4 @@ evidence/**/*.log
 evidence/**/cms-session.json
 evidence/caddy-*.json
 .DS_Store
+src/assets/toned/

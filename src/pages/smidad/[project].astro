@@ -13,7 +13,7 @@ const machines=(await getCollection('machines')).filter(m=>visible(m)&&p.machine
 const {Content}=await render(entry);
 ---
 <SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
-  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption}><p class="meta" slot="meta">{p.example && <>{s.labels.example} · </>}{cat?.title ?? s.labels.projectCategoryPending}</p><p>{p.maker} · {p.date}</p></PageIntro>
+  <PageIntro title={p.title} description={p.description} image={p.image} caption={p.imageCaption} vt={`project-${slug(entry.id)}`}><p class="meta" slot="meta">{p.example && <>{s.labels.example} · </>}{cat?.title ?? s.labels.projectCategoryPending}</p><p>{p.maker} · {p.date}</p></PageIntro>
   <section class="content-section detail-pair" aria-labelledby="h-project">{p.sections.map((section,i)=><div><div class="section-title"><h2 id={i===0?'h-project':undefined}>{section.title}</h2></div><p>{section.text}</p></div>)}</section>
   {entry.body?.trim() && <div class="content-section prose"><Content/></div>}
   <section class="content-section" aria-labelledby="h-machines"><div class="section-title"><h2 id="h-machines">{s.labels.projectMachines}</h2></div>{!machines.length && <p>{s.labels.projectMachinesEmpty}</p>}<ul class="related-list">{machines.map(m=><li><a href={url(`/taeki/${slug(m.id)}/`)}>{m.data.title}</a></li>)}</ul><p><a class="more" href={url('/smidad/')}>{s.labels.projectBack} <span aria-hidden="true">→</span></a></p></section>

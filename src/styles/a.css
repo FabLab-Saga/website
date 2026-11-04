@@ -267,3 +267,25 @@ summary::-webkit-details-marker{display:none}
 }
 @media(prefers-reduced-motion:reduce){.card:has(a:hover) .card-image-link.r-tl img,.card:has(a:focus-visible) .card-image-link.r-tl img{border-top-left-radius:min(170px,40%) 100%}.card:has(a:hover) .card-image-link.r-tr img,.card:has(a:focus-visible) .card-image-link.r-tr img{border-top-right-radius:min(170px,40%) 100%}}
 
+
+/* Interactive wall and project transitions. Palette above is unchanged. */
+.wall[data-live] .deco{cursor:grab;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.wall[data-live] .deco.is-held{cursor:grabbing}
+body:focus{outline:none}
+/* Shape-to-page: the project card's shaped image grows into the project page's mask. */
+@media (prefers-reduced-motion:no-preference){
+  ::view-transition-group(*){animation-duration:.45s;animation-timing-function:cubic-bezier(.3,.7,.2,1)}
+  ::view-transition-old(*),::view-transition-new(*){height:100%;object-fit:cover;overflow:clip}
+  /* the old page leaves fast and the new one arrives a beat later, so the moving
+     photo is the one thing on screen in motion (no double-exposed text) */
+  ::view-transition-old(root),::view-transition-old(*):only-child{animation-duration:.14s}
+  ::view-transition-new(root),::view-transition-new(*):only-child{animation-duration:.3s;animation-delay:.06s}
+  /* the card crop hands over to the header crop early; the box keeps moving for .45 s */
+  ::view-transition-image-pair(*){isolation:isolate}
+  ::view-transition-old(*):not(:only-child),::view-transition-new(*):not(:only-child){animation-duration:.2s}
+}
+
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .wall[data-live] .deco{transition:scale .15s ease-out}
+  .wall[data-live] .deco:hover{scale:.97}
+}

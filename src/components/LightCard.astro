@@ -1,7 +1,7 @@
 ---
 import Photo from './Photo.astro';
 import { url } from '../lib/paths';
-interface Props { title:string; image:{src:string;alt:string}; meta:string; href:string; index?:number }
-const {title,image,meta,href,index=0}=Astro.props;
+interface Props { title:string; image:{src:string;alt:string}; meta:string; href:string; index?:number; vt?:string }
+const {title,image,meta,href,index=0,vt}=Astro.props;
 ---
-<article class="card"><div class:list={['card-image-link',index%2===0?'r-tl':'r-tr']}><Photo src={image.src} alt={image.alt} sizes="(min-width:900px) 30vw, (min-width:600px) 45vw, 100vw" /></div><p class="meta">{meta}</p><h3><a href={url(href)}>{title}</a></h3></article>
+<article class="card"><div class:list={['card-image-link',index%2===0?'r-tl':'r-tr']} style={vt ? `view-transition-name:${vt}` : undefined}><Photo src={image.src} alt={image.alt} sizes="(min-width:900px) 30vw, (min-width:600px) 45vw, 100vw" /></div><p class="meta">{meta}</p><h3><a href={url(href)}>{title}</a></h3></article>

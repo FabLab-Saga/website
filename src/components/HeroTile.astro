@@ -1,10 +1,13 @@
 ---
-import Photo from './Photo.astro';
-import { url } from '../lib/paths';
+import { Image } from 'astro:assets';
+import { url, tonedSource } from '../lib/paths';
+import { categoryStyle } from '../lib/identity';
 interface Props { category: string; title: string; image: { src: string; alt: string }; shape: string; span?: string }
 const { category, title, image, shape, span = '' } = Astro.props;
+// Mural tone: the photo is printed in its category's colour (ink → colour → paper).
+const colour = categoryStyle[category].colour;
 ---
-<a class:list={['tile', shape, span]} href={url(`/taeki/#${category}`)}>
-  <Photo {...image} sizes="(min-width: 900px) 25vw, 50vw" eager />
+<a class:list={['tile', shape, span, `c-${colour}`]} href={url(`/taeki/#${category}`)} data-colour={colour}>
+  <Image src={tonedSource(image.src, colour)} alt={image.alt} widths={[480,800,1600]} sizes="(min-width: 900px) 25vw, 50vw" format="webp" loading="eager" decoding="async" />
   <span class="lbl">{title}</span>
 </a>

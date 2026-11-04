@@ -5,6 +5,7 @@ import { footerBand } from '../lib/identity';
 import { url } from '../lib/paths';
 import '../styles/a.css';
 import font from '../assets/fonts/Bricolage.woff2?url';
+import { ClientRouter } from 'astro:transitions';
 interface Props { title: string; description: string; class?: string }
 const { title, description, class: bodyClass = '' } = Astro.props;
 const s = (await getEntry('site', 'is'))!.data;
@@ -19,6 +20,7 @@ const s = (await getEntry('site', 'is'))!.data;
   <title>{title}</title>
   <link rel="icon" href="data:," />
   <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
+  <ClientRouter />
 </head>
 <body class={bodyClass}>
   <a class="skip" href="#efni">{s.labels.skip}</a>
@@ -39,5 +41,18 @@ const s = (await getEntry('site', 'is'))!.data;
       <p class="foot-note">{s.footer.imageNote}</p>
     </div>
   </footer>
+  <script>
+    // Same-document view transitions (Chromium, Safari, Firefox 144+) via Astro's ClientRouter.
+    // withastro/astro#14135 (Firefox loading lazy images eagerly after a swap) does not
+    // reproduce in Firefox 157/159, so Astro's default swap is kept (see round2/ROUND2.md).
+    // After a swap, keyboard focus starts at the top of the new page, as after a full load
+    // (Tab reaches the skip link first). The router announces the new <title>.
+    document.addEventListener('astro:after-swap', () => {
+      const body = document.body;
+      body.setAttribute('tabindex', '-1');
+      body.focus({ preventScroll: true });
+      body.removeAttribute('tabindex');
+    });
+  </script>
 </body>
 </html>

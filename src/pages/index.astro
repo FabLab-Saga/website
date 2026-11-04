@@ -7,6 +7,10 @@ import VisitInfo from '../components/VisitInfo.astro';
 import CategoryTiles from '../components/CategoryTiles.astro';
 import { categoryOrder } from '../lib/identity';
 import { url } from '../lib/paths';
+import { minifySync } from 'rolldown/utils';
+import wallSource from '../scripts/wall.js?raw';
+// The wall script is inlined (and minified at build) so the first deal happens before first paint.
+const wallJs = minifySync('wall.js', wallSource).code;
 const s = (await getEntry('site', 'is'))!.data;
 const p = (await getEntry('pages', 'is/home'))!.data;
 const cats = await getCollection('categories');
@@ -22,10 +26,10 @@ const candidates = await Promise.all(p.news!.featured.map(async (item) => {
 const featured = candidates.filter(item => item.data.published || import.meta.env.BASE_URL !== '/' || import.meta.env.DEV);
 ---
 <SiteLayout title={p.title} description={p.description} class="home">
-  <section class="wall" aria-labelledby="h-saga">
+  <section class="wall" aria-labelledby="h-saga" data-wall>
     <span class="deco half c-blue w2" aria-hidden="true" />
     <HeroTile category="laser" title={byId.laser.title} image={byId.laser.image!} shape="r-tl" />
-    <span class="deco sq c-pink" aria-hidden="true" />
+    <span class="deco sq c-orange" aria-hidden="true" />
     <HeroTile category="prent" title={byId.prent.title} image={byId.prent.image!} shape="half" span="w2" />
     <span class="deco r-br c-yellow" aria-hidden="true" />
     <span class="deco r-bl c-green" aria-hidden="true" />
@@ -35,11 +39,12 @@ const featured = candidates.filter(item => item.data.published || import.meta.en
       <p class="opens">{s.labels.opens} {p.hero!.opening} · {s.visit.location}</p>
     </div>
     <HeroTile category="fraesi" title={byId.fraesi.title} image={byId.fraesi.image!} shape="r-tr" span="w2 h2" />
-    <span class="deco circle c-pink" aria-hidden="true" />
-    <span class="deco r-tl c-orange" aria-hidden="true" />
+    <span class="deco circle c-blue" aria-hidden="true" />
+    <span class="deco r-tl c-yellow" aria-hidden="true" />
     <HeroTile category="textill" title={byId.textill.title} image={byId.textill.image!} shape="circle" />
     <span class="deco sq c-red" aria-hidden="true" />
   </section>
+  <script is:inline data-astro-rerun set:html={wallJs}></script>
 
   <section id="heimsokn" class="band-info" aria-labelledby="h-heimsokn">
     <h2 id="h-heimsokn" class="vh">{s.labels.visit}</h2>
