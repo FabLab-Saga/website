@@ -32,6 +32,18 @@ npm run cms:sync   # regenerate config.yml
 npm run cms:check  # verify config.yml matches the schemas
 ```
 
+## Preview
+
+The pane beside the editor shows the entry as it will look on the site: same stylesheet, font and page markup, content only (no header, menu or footer). It updates as you type, and new uploads show straight away.
+
+- `public/admin/preview/preview.js` holds one template per collection, plain JavaScript using Sveltia's `CMS.registerPreviewTemplate` and the `html` tagged template. It's loaded after `sveltia-cms.js` in `public/admin/index.html`.
+- `src/pages/admin/preview/site.css.ts` serves `src/styles/a.css` at the stable URL `admin/preview/site.css`, with the font URL resolved by the build, so hashed asset names and the base path (`/`, `/website/`, `/fablab-saga/v3/`) don't matter.
+- Labels, category names and machine titles come from the other entries through Sveltia's `getCollection`, so the preview uses the same copy as the site.
+
+Each template names the page it copies (`news · src/pages/frettir/[news].astro`). **When you change a page's markup or classes, make the same change in its template.** `npm test` runs `scripts/check-cms-preview.mjs`, which fails if a collection has no template, a template reads a field the schema doesn't have, a site label is missing, or the copied category identity or palette drifts from `src/lib/identity.ts` and `a.css`. It can't see layout drift; compare the preview with the built page after a layout change.
+
+Two places are approximations: the homepage wall photos are toned in the browser with an SVG filter (the site uses build-time tones from `scripts/mural-tone.mjs`), and the wall shows its as-built arrangement. The pane is narrower than a desktop window, so it shows the site's narrow-screen layout.
+
 ## Editing locally
 
 ```sh
