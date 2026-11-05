@@ -20,7 +20,7 @@ function field(name, s, required = true) {
 }
 function fields(s) { return Object.entries(s.properties).map(([name, value]) => field(name, value, s.required?.includes(name) || false)); }
 const config = {
-  backend: { name: 'github', repo: 'FabLab-Saga/website', branch: 'main', base_url: 'https://auth-not-configured.invalid' },
+  backend: { name: 'github', repo: 'FabLab-Saga/website', branch: 'main', base_url: 'https://sveltia-cms-auth.magnus-588.workers.dev' },
   publish_mode: 'editorial_workflow',
   media_folder: 'src/assets/uploads',
   public_folder: '/src/assets/uploads',
@@ -36,7 +36,7 @@ const config = {
 };
 await mkdir('public/admin', { recursive: true });
 await writeFile('public/admin/config.yml', `# Generated from src/lib/content-model.mjs by npm run cms:sync.
-# Set backend.base_url when the institution-owned auth Worker exists.
+# Sign-in goes through the sveltia-cms-auth Worker (Cloudflare).
 # Sveltia uses its native local-repository picker, not Decap local_backend.
 ` + stringify(config));
 let bundle = await readFile('node_modules/@sveltia/cms/dist/sveltia-cms.js', 'utf8');

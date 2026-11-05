@@ -40,7 +40,7 @@ function validate(c) {
   }
   assert.equal(c.backend.repo, 'FabLab-Saga/website');
   assert.equal(c.backend.branch, 'main');
-  assert.equal(c.backend.base_url, 'https://auth-not-configured.invalid');
+  assert.equal(c.backend.base_url, 'https://sveltia-cms-auth.magnus-588.workers.dev');
   assert.equal(c.media_folder, 'src/assets/uploads');
   assert.equal(c.public_folder, '/src/assets/uploads');
 }

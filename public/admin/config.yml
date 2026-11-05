@@ -1,11 +1,11 @@
 # Generated from src/lib/content-model.mjs by npm run cms:sync.
-# Set backend.base_url when the institution-owned auth Worker exists.
+# Sign-in goes through the sveltia-cms-auth Worker (Cloudflare).
 # Sveltia uses its native local-repository picker, not Decap local_backend.
 backend:
   name: github
   repo: FabLab-Saga/website
   branch: main
-  base_url: https://auth-not-configured.invalid
+  base_url: https://sveltia-cms-auth.magnus-588.workers.dev
 publish_mode: editorial_workflow
 media_folder: src/assets/uploads
 public_folder: /src/assets/uploads
