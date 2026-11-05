@@ -19,8 +19,8 @@ policy: Staðfesta þarf efni og aðgang með starfsfólki áður en tækið er 
   vinnustykkis segir ekki til um hversu þykkt efni leysirinn getur skorið.
 policyDraft: true
 image:
-  src: /src/assets/uploads/geislaskerar.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
+  src: /src/assets/uploads/epilog-fusion-edge.webp
+  alt: Epilog Fusion Edge 24 á eigin undirstöðu í laserrýminu.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: "SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki
   herbergisnúmer. Epilog Fusion Edge Manual, kafli 13, prentuð bls. 177: Fusion Edge 24 — 610 × 610

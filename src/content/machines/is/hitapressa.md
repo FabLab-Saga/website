@@ -10,8 +10,8 @@ specs: []
 policy: "[Reglur um aðgang, bókun og notkun]"
 policyDraft: true
 image:
-  src: /src/assets/uploads/stor-hitapressa.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
+  src: /src/assets/uploads/raud-hitapressa.webp
+  alt: Rauð og svört hitapressa með upphækkuðum þrýstifleti á bekk við glugga.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:

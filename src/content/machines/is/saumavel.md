@@ -10,8 +10,8 @@ specs: []
 policy: "[Reglur um aðgang, bókun og notkun]"
 policyDraft: true
 image:
-  src: /src/assets/uploads/saumavelar.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
+  src: /src/assets/uploads/brother-saumavel.webp
+  alt: Hvít Brother-saumavél á vinnuborði með skærum fyrir framan.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
