@@ -2,7 +2,7 @@
 
 Vefur Fab Lab SAGA, stafrænnar smiðju Háskóla Íslands í Sögu.
 
-The website of Fab Lab SAGA, the University of Iceland's digital fabrication workshop in the Saga building. The site is a static [Astro](https://astro.build/) build, and content is edited by colleagues in [Sveltia CMS](https://sveltiacms.app/) (see [CMS.md](CMS.md)).
+The website of Fab Lab SAGA, the University of Iceland's digital fabrication workshop in the Saga building. The site is a static [Astro](https://astro.build/) build, and content is editable in [Sveltia CMS](https://sveltiacms.app/) (see [CMS.md](CMS.md)).
 
 **Status: v1 draft.** Opening hours, contact details, access rules and some machine models are still placeholders, and the site is not yet published.
 
