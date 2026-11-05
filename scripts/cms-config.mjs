@@ -22,6 +22,7 @@ function fields(s) { return Object.entries(s.properties).map(([name, value]) => 
 const config = {
   backend: { name: 'github', repo: 'FabLab-Saga/website', branch: 'main', base_url: 'https://sveltia-cms-auth.magnus-588.workers.dev' },
   publish_mode: 'editorial_workflow',
+  logo: { src: '../favicon.svg' },
   media_folder: 'src/assets/uploads',
   public_folder: '/src/assets/uploads',
   media_libraries: { default: { config: { max_file_size: 2000000, transformations: { raster_image: { format: 'webp', width: 2048, height: 2048, quality: 85 } } } } },

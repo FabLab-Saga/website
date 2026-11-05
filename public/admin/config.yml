@@ -7,6 +7,8 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.magnus-588.workers.dev
 publish_mode: editorial_workflow
+logo:
+  src: ../favicon.svg
 media_folder: src/assets/uploads
 public_folder: /src/assets/uploads
 media_libraries:

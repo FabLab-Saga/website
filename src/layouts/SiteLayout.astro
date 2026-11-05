@@ -18,7 +18,9 @@ const s = (await getEntry('site', 'is'))!.data;
   <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content={description} />
   <title>{title}</title>
-  <link rel="icon" href="data:," />
+  <link rel="icon" href={url('/favicon.ico')} sizes="32x32" />
+  <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+  <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
   <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
   <ClientRouter />
 </head>
