@@ -6,7 +6,7 @@ date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/thrividdarprentarar.webp
   alt: Þrívíddarprentarar í svörtum hillum.
+  placeholder: true
 category: prent
 kind: news
-imageCaption: Tölvugerð mynd af smiðjunni.
 ---

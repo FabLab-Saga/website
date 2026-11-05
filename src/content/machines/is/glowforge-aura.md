@@ -11,8 +11,8 @@ policy: "[Reglur um aðgang, bókun og notkun]"
 policyDraft: true
 image:
   src: /src/assets/uploads/geislaskerar.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  alt: Grænn laserskeri og hvít tæki á ljósum viðarskápum við svartar hillur og stóra glugga.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

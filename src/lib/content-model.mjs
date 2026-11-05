@@ -22,11 +22,13 @@ const imagePath = z.string().regex(/^\/src\/assets\/uploads\/[a-zA-Z0-9_-]+\.(we
 });
 export const categoryIds = ['laser', 'fraesi', 'prent', 'rafeinda', 'skurdur', 'formmotun', 'textill', 'hitapressur', 'skanni'];
 const category = z.enum(categoryIds).meta({ label: 'Flokkur' });
-const picture = object('Mynd', { src: imagePath, alt: text('Myndlýsing') });
+// Marks a stand-in image to replace before launch. The site never renders it.
+const placeholderFlag = optional(z.boolean().meta({ label: 'Bráðabirgðamynd', default: false })).transform(value => value ?? false);
+const picture = object('Mynd', { src: imagePath, alt: text('Myndlýsing'), placeholder: placeholderFlag });
 const link = object('Tengill', { label: text('Texti tengils'), href });
 const base = { title: text('Titill'), description: prose('Lýsing'), published: flag('Birta') };
 const policy = { policy: prose('Reglur og aðgangur'), policyDraft: z.literal(true).meta({ label: 'Drög að reglum', widget: 'hidden', default: true }) };
-const article = { ...base, date: text('Dagsetning'), image: picture, imageCaption: text('Myndatexti'), category, body: optionalText('Meginmál') };
+const article = { ...base, date: text('Dagsetning'), image: picture, imageCaption: optionalText('Myndatexti'), category, body: optionalText('Meginmál') };
 
 export const schemas = {
   site: z.object({
@@ -37,7 +39,7 @@ export const schemas = {
       contact: text('Hafa samband'), email: text('Netfang'), phone: text('Sími'), opens: text('Opnar'), draft: text('Drög'),
       newsKind: text('Frétt'), courseKind: text('Námskeið'), eventKind: text('Viðburður'),
       notFound: text('Síða fannst ekki'), notFoundText: prose('Texti villusíðu'), homeLink: text('Tengill á forsíðu'),
-      equipment: text('Heiti búnaðarsíðu'), categories: text('Flokkar'), inventory: text('Tækjalisti'),
+      categories: text('Flokkar'), inventory: text('Tækjalisti'),
       specs: text('Tæknilegar upplýsingar'), quantity: text('Fjöldi'), location: text('Rými'),
       suitable: text('Hentar fyrir'), before: text('Áður en þú byrjar'), courses: text('Námskeið'),
       courseLink: text('Tengill á námskeið'), related: text('Tengd tæki'), allEquipment: text('Allur búnaður'),
@@ -78,7 +80,7 @@ export const schemas = {
     ...base, category,
     quantity: z.number().int().min(1).meta({ label: 'Fjöldi', widget: 'number', value_type: 'int', min: 1 }),
     modelConfirmed: flag('Gerð staðfest'), location: text('Rými'),
-    image: picture, imageCaption: text('Myndatexti'),
+    image: picture, imageCaption: optionalText('Myndatexti'),
     specs: optional(list('Staðfestar tæknilýsingar', object('Tæknilýsing', { label: text('Heiti'), value: text('Gildi'), source, note: optionalText('Skýring við gildi') }), 4)).transform(value => value ?? []),
     source: prose('Heimildir og athugasemdir ritstjóra'),
     uses: list('Hentar fyrir', text('Efni eða notkun'), 4),

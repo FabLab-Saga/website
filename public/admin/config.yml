@@ -130,10 +130,6 @@ collections:
                 label: Tengill á forsíðu
                 required: true
                 widget: string
-              - name: equipment
-                label: Heiti búnaðarsíðu
-                required: true
-                widget: string
               - name: categories
                 label: Flokkar
                 required: true
@@ -388,6 +384,11 @@ collections:
                 label: Myndlýsing
                 required: true
                 widget: string
+              - name: placeholder
+                label: Bráðabirgðamynd
+                required: false
+                widget: boolean
+                default: false
       - name: equipment
         label: Búnaður
         required: false
@@ -490,6 +491,11 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: imageCaption
         label: Myndatexti
         required: false
@@ -540,6 +546,15 @@ collections:
         label: Meginmál
         required: false
         widget: markdown
+    view_filters:
+      - name: placeholder-about-image
+        label: "Bráðabirgðamyndir: Um smiðjuna"
+        field: about.image.placeholder
+        pattern: true
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true
   - name: machines
     label: Tæki
     folder: src/content/machines/is
@@ -608,9 +623,14 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: imageCaption
         label: Myndatexti
-        required: true
+        required: false
         widget: string
       - name: specs
         label: Staðfestar tæknilýsingar
@@ -681,6 +701,11 @@ collections:
         label: Meginmál
         required: false
         widget: markdown
+    view_filters:
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true
   - name: categories
     label: Flokkar
     folder: src/content/categories/is
@@ -717,10 +742,20 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: body
         label: Meginmál
         required: false
         widget: markdown
+    view_filters:
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true
   - name: courses
     label: Námskeið
     folder: src/content/courses/is
@@ -765,9 +800,14 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: imageCaption
         label: Myndatexti
-        required: true
+        required: false
         widget: string
       - name: category
         label: Flokkur
@@ -819,6 +859,11 @@ collections:
         required: true
         widget: hidden
         default: true
+    view_filters:
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true
   - name: projects
     label: Smíðað í Sögu
     folder: src/content/projects/is
@@ -863,9 +908,14 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: imageCaption
         label: Myndatexti
-        required: true
+        required: false
         widget: string
       - name: category
         label: Flokkur
@@ -916,6 +966,11 @@ collections:
             label: Texti
             required: true
             widget: text
+    view_filters:
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true
   - name: news
     label: Fréttir
     folder: src/content/news/is
@@ -960,9 +1015,14 @@ collections:
             label: Myndlýsing
             required: true
             widget: string
+          - name: placeholder
+            label: Bráðabirgðamynd
+            required: false
+            widget: boolean
+            default: false
       - name: imageCaption
         label: Myndatexti
-        required: true
+        required: false
         widget: string
       - name: category
         label: Flokkur
@@ -989,3 +1049,8 @@ collections:
         options:
           - news
           - events
+    view_filters:
+      - name: placeholder-image
+        label: Bráðabirgðamyndir
+        field: image.placeholder
+        pattern: true

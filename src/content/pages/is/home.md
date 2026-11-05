@@ -24,6 +24,7 @@ about:
   image:
     src: /src/assets/uploads/vinnurymi.webp
     alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
+    placeholder: true
 equipment:
   title: Búnaður
   summary: Í smiðjunni verða {units} tæki í {categories} flokkum.

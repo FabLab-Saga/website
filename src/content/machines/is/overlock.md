@@ -12,7 +12,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/overlock-vel.webp
   alt: Hvít overlock-vél með fjórum litríkum þráðarkeflum á vinnuborði.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

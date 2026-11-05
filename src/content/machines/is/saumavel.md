@@ -12,7 +12,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/brother-saumavel.webp
   alt: Hvít Brother-saumavél á vinnuborði með skærum fyrir framan.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

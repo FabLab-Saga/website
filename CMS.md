@@ -21,6 +21,7 @@ Some limits keep pages calm:
 - Policies stay visibly marked **Drög** (draft) until lab policy is approved.
 - Uploads are raster images in `src/assets/uploads/`, converted to WebP, at most 2048 × 2048 px and 2 MB, and each needs alt text.
 - Category photos on the homepage wall are toned automatically at build time (`npm run tone`, `scripts/mural-tone.mjs`): ink → the category's existing colour → paper. Replacing a category photo is enough. There's no extra field, and other uses of the photo keep the original.
+- Images that stand in for a real photo carry the **Bráðabirgðamynd** checkbox; the site never shows it, the **Bráðabirgðamyndir** filter in each collection list finds them, and `npm run placeholders` lists those images and every `[bracketed]` text still waiting for content.
 - Markdown is limited to prose, headings, lists, emphasis and links. Raw HTML, tables and inline images fail the build.
 
 ## Schema → CMS config

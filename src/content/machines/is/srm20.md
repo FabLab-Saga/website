@@ -11,8 +11,8 @@ policy: "[Reglur um aðgang, bókun og notkun]"
 policyDraft: true
 image:
   src: /src/assets/uploads/rafeindaverkstaedi.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  alt: Tvö hvít lokuð tæki á vinnubekk í rafeindaverkstæði, með smáhlutaskúffum og vírakeflum á veggnum.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

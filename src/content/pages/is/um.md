@@ -12,7 +12,7 @@ partners:
 image:
   src: /src/assets/uploads/vinnurymi.webp
   alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
-imageCaption: Tölvugerð mynd af smiðjunni.
+  placeholder: true
 listTitle: ''
 emptyText: ''
 blocks:

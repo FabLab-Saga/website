@@ -14,8 +14,8 @@ policy: Tæki, efni, fræsibitur og festing þurfa að vera yfirfarin með starf
 policyDraft: true
 image:
   src: /src/assets/uploads/fraesivel.webp
-  alt: Tölvugerð mynd af vinnurými smiðjunnar.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  alt: Stór fræsivél við glugga.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki
   herbergisnúmer. PRSalpha-fjölskyldan er staðfest; 120-60 eða 96-60 afbrigði er óstaðfest. Engar
   vinnusvæðis-, snældu- eða hraðatölur birtar. ShopBot PRSalpha/PRSstandard Quick-Start Guide er

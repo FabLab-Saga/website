@@ -12,7 +12,7 @@ const {Content}=await render(entry);
 ---
 <SiteLayout title={`${p.title} · ${s.name}`} description={p.description}>
   <article class="article"><p class="meta">{p.kind==='events'?s.labels.eventKind:s.labels.newsKind} · {p.date}{!p.published && <> · {s.labels.draft}</>}</p><h1>{p.title}</h1><p class="lede">{p.description}</p>
-    <figure class="art-fig r-tl"><Photo {...p.image} sizes="(min-width:1100px) 1000px, 100vw" eager/><figcaption>{p.imageCaption}</figcaption></figure>
+    <figure class="art-fig r-tl"><Photo {...p.image} sizes="(min-width:1100px) 1000px, 100vw" eager/>{p.imageCaption && <figcaption>{p.imageCaption}</figcaption>}</figure>
     <div class="art-body prose"><Content /></div><p><a class="more" href={url('/frettir/')}>{s.labels.newsBack} <span aria-hidden="true">→</span></a></p>
   </article>
 </SiteLayout>

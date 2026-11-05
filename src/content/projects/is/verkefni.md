@@ -5,8 +5,8 @@ published: false
 date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/vinnurymi.webp
-  alt: Tölvugerð mynd af smiðjunni í stað verkefnismyndar.
-imageCaption: Dæmi um framsetningu. Tölvugerð mynd, ekki mynd af verkefni.
+  alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
+  placeholder: true
 maker: "[Nafn höfundar]"
 example: true
 machines: []

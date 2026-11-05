@@ -6,11 +6,11 @@ date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/textilsvaedi.webp
   alt: Saumavélar á vinnuborði við glugga.
+  placeholder: true
 category: textill
 time: "[Tími]"
 policy: "[Forkröfur námskeiðs]"
 policyDraft: true
-imageCaption: Tölvugerð mynd af smiðjunni.
 seats: "[Fjöldi sæta]"
 language: "[Tungumál]"
 signupText: Skráning hefur ekki verið opnuð.

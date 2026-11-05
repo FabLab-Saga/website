@@ -12,11 +12,25 @@ function field(name, s, required = true) {
     if (s.items.type === 'object') return { ...f, widget: 'list', fields: fields(s.items) };
     return { ...f, widget: 'list', field: field('value', s.items) };
   }
-  if (s.type === 'boolean') return { ...f, widget: 'boolean' };
+  if (s.type === 'boolean') return { ...f, widget: 'boolean', ...(s.default !== undefined ? { default: s.default } : {}) };
   if (s.type === 'integer' || s.type === 'number') return { ...f, widget: 'number', value_type: s.type === 'integer' ? 'int' : 'float', min: s.minimum };
   if (name === 'body') return { ...f, widget: 'markdown' };
   if (s.widget === 'image') return { ...f, widget: 'image', pattern: [s.editorPattern, 'Veldu mynd úr myndasafninu.'], media_library: { config: { max_file_size: 2000000 } } };
   return { ...f, widget: s.widget || 'string', ...(s.pattern ? { pattern: [s.pattern, 'Athugaðu snið gildisins.'] } : {}) };
+}
+// List filters for entries whose images are still flagged as placeholders.
+const plain = (s) => { while (s.anyOf) s = s.anyOf.find(part => part.type !== 'null'); return s; };
+function placeholderFilters(schema) {
+  const found = [];
+  for (const [name, raw] of Object.entries(schema.properties)) {
+    const s = plain(raw);
+    if (s.properties?.placeholder) found.push({ path: name, label: 'Bráðabirgðamyndir' });
+    else for (const [child, value] of Object.entries(s.properties || {})) {
+      if (plain(value).properties?.placeholder) found.push({ path: `${name}.${child}`, label: `Bráðabirgðamyndir: ${s.label}` });
+    }
+  }
+  if (!found.length) return {};
+  return { view_filters: found.map(({ path, label }) => ({ name: `placeholder-${path.replace('.', '-')}`, label, field: `${path}.placeholder`, pattern: true })) };
 }
 function fields(s) { return Object.entries(s.properties).map(([name, value]) => field(name, value, s.required?.includes(name) || false)); }
 const config = {
@@ -33,6 +47,7 @@ const config = {
     create: !['categories','pages'].includes(name), delete: !['categories','pages'].includes(name),
     extension: 'md', format: 'yaml-frontmatter', slug: '{{slug}}',
     fields: fields(schema),
+    ...placeholderFilters(schema),
   }),
 };
 await mkdir('public/admin', { recursive: true });

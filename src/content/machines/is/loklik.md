@@ -12,7 +12,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/loklik-hitapressa.webp
   alt: Grænblá LOKLiK-hitapressa á vinnuborði.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: SagaModel/MACHINES.md — ein LOKLiK hitapressa; vörumerkið er staðfest en nákvæm gerð er óstaðfest. Auto Heat Press er aðeins staðgengill í tölvulíkani. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

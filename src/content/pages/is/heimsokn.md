@@ -4,8 +4,8 @@ description: Hér verða upplýsingar um opnunartíma, aðgang og leiðina í sm
 published: true
 image:
   src: /src/assets/uploads/yfirsyn.webp
-  alt: Tölvugerð yfirlitsmynd af vinnusal smiðjunnar.
-imageCaption: Tölvugerð mynd af vinnusal smiðjunnar.
+  alt: Yfirlitsmynd af vinnusal smiðjunnar ofan frá, með borðum, glerveggjum og bókahillum.
+  placeholder: true
 blocks:
   - title: Hvar í Sögu?
     text: "[Hæð, herbergisnúmer og inngangur]"

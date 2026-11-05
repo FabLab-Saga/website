@@ -5,8 +5,8 @@ published: false
 date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/thrividdarprentarar.webp
-  alt: Tölvugerð mynd af svæði þrívíddarprentara.
-imageCaption: Tölvugerð mynd af smiðjunni.
+  alt: Þrívíddarprentarar í svörtum hillum.
+  placeholder: true
 category: prent
 time: "[Tími]"
 seats: "[Fjöldi sæta]"

@@ -7,9 +7,9 @@ date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/smidjan.webp
   alt: Vinnusalur smiðjunnar með löngum borðum og merki Fab Lab SAGA á veggnum.
+  placeholder: true
 category: laser
 kind: news
-imageCaption: Tölvugerð mynd af smiðjunni.
 ---
 
 Smiðjan sameinar á einum stað aðstöðu, þekkingu og samstarf þvert á fræðasvið og skólastig.

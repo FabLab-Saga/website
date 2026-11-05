@@ -11,7 +11,8 @@
     "build": "npm test && node scripts/clean-build.mjs && npm run tone && astro build",
     "build:preview": "npm test && node scripts/clean-build.mjs && npm run tone && PREVIEW_BASE=/fablab-saga/v3/ astro build",
     "test": "node scripts/check-cms.mjs && node scripts/check-cms-preview.mjs && node scripts/check-content.mjs && node scripts/check-markdown.mjs && node scripts/check-mural-tone.mjs",
-    "tone": "node scripts/mural-tone.mjs"
+    "tone": "node scripts/mural-tone.mjs",
+    "placeholders": "node scripts/list-placeholders.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.5",

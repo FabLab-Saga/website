@@ -12,7 +12,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/handskanni.webp
   alt: Handskanni á litlum þrífæti við snúningsdisk með bláum hlut og geymslukassa.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

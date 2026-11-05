@@ -19,8 +19,8 @@ policy: Bókun, efnisgjald og reglur um lengri prentanir eru til staðfestingar.
 policyDraft: true
 image:
   src: /src/assets/uploads/thrividdarprentarar.webp
-  alt: Tölvugerð mynd af svæði þrívíddarprentara.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  alt: Þrívíddarprentarar í svörtum hillum.
+  placeholder: true
 source: "SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki
   herbergisnúmer. Prusa 10th Anniversary Edition: sama virkni og sömu íhlutir og venjulegur
   MK3S+ samkvæmt framleiðanda; tæknilýsing og samanburður við MINI+ staðfesta

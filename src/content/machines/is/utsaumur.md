@@ -12,7 +12,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/brother-utsaumsvel.webp
   alt: Hvít Brother-útsaumsvél með bláum skjá á vinnuborði.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.
 uses:
   - "[Efni og notkun til staðfestingar]"

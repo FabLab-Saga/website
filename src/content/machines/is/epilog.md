@@ -21,7 +21,7 @@ policyDraft: true
 image:
   src: /src/assets/uploads/epilog-fusion-edge.webp
   alt: Epilog Fusion Edge 24 á eigin undirstöðu í laserrýminu.
-imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
+  placeholder: true
 source: "SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki
   herbergisnúmer. Epilog Fusion Edge Manual, kafli 13, prentuð bls. 177: Fusion Edge 24 — 610 × 610
   mm hámarkssvæði leturgröfturs, 254 mm hámarksþykkt vinnustykkis. Þykkt vinnustykkis er ekki

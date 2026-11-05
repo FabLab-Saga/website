@@ -104,7 +104,7 @@
   // news · src/pages/frettir/[news].astro
   CMS.registerPreviewTemplate('news', page(({ s, p, src, body }) => html`
     <article className="article"><p className="meta">${kindLabel(s, p)} · ${p.date}${!p.published && ` · ${s.labels.draft}`}</p><h1>${p.title}</h1><p className="lede">${p.description}</p>
-      <figure className="art-fig r-tl"><${Photo} image=${p.image} src=${src} eager /><figcaption>${p.imageCaption}</figcaption></figure>
+      <figure className="art-fig r-tl"><${Photo} image=${p.image} src=${src} eager />${p.imageCaption && html`<figcaption>${p.imageCaption}</figcaption>`}</figure>
       <div className="art-body prose">${body}</div><p><${More} href="/frettir/" label=${s.labels.newsBack} /></p>
     </article>`));
 

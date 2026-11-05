@@ -5,8 +5,8 @@ published: false
 date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/textilsvaedi.webp
-  alt: Tölvugerð mynd af smiðjunni í stað verkefnismyndar.
-imageCaption: Dæmi um framsetningu. Tölvugerð mynd, ekki mynd af verkefni.
+  alt: Saumavélar á vinnuborði við glugga.
+  placeholder: true
 maker: "[Nafn höfundar]"
 example: true
 machines: []

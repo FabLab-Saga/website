@@ -5,8 +5,8 @@ published: false
 date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/thrividdarprentarar.webp
-  alt: Tölvugerð mynd af smiðjunni í stað verkefnismyndar.
-imageCaption: Dæmi um framsetningu. Tölvugerð mynd, ekki mynd af verkefni.
+  alt: Þrívíddarprentarar í svörtum hillum.
+  placeholder: true
 maker: "[Nafn höfundar]"
 example: true
 machines: []

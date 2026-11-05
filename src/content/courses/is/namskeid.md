@@ -6,11 +6,11 @@ date: "[Dagsetning]"
 image:
   src: /src/assets/uploads/geislaskerar-naermynd.webp
   alt: Laserskeri á bekk við glugga.
+  placeholder: true
 category: laser
 time: "[Tími]"
 policy: "[Forkröfur námskeiðs]"
 policyDraft: true
-imageCaption: Tölvugerð mynd af smiðjunni.
 seats: "[Fjöldi sæta]"
 language: "[Tungumál]"
 signupText: Skráning hefur ekki verið opnuð.

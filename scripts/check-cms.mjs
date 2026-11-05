@@ -46,6 +46,14 @@ function validate(c) {
 }
 validate(config);
 const count = checkedFields;
+// Every image object has a placeholder flag, and each collection list can filter on it.
+for (const collection of config.collections.filter(c => c.folder)) {
+  const paths = [];
+  const scan = (fields, prefix) => { for (const f of fields || []) if (f.widget === 'object') { if (f.fields.some(x => x.name === 'src' && x.widget === 'image')) paths.push(`${prefix}${f.name}.placeholder`); else scan(f.fields, `${prefix}${f.name}.`); } };
+  scan(collection.fields, '');
+  assert.deepEqual((collection.view_filters || []).map(f => f.field).sort(), paths.sort(), `${collection.name}: placeholder filters`);
+  for (const f of collection.view_filters || []) assert.equal(f.pattern, true, `${collection.name}: ${f.name} pattern`);
+}
 // Prove the checker detects omissions, nested drift and incompatible widgets.
 for (const mutate of [
   c => c.collections.pop(),
