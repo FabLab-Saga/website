@@ -15,6 +15,7 @@ nav:
 labels:
   skip: Fara beint í efni
   nav: Aðalvalmynd
+  menu: Valmynd
   logo: Fab Lab SAGA, forsíða
   visit: Heimsókn
   hours: Opnunartími
@@ -31,7 +32,6 @@ labels:
   notFound: Síða fannst ekki
   notFoundText: Slóðin er ekki til.
   homeLink: Fara á forsíðu
-  menu: Valmynd
   equipment: Það sem við höfum
   categories: Flokkar
   inventory: Tækin
@@ -44,13 +44,13 @@ labels:
   courseLink: Sjá námskeið
   related: Tengd tæki
   allEquipment: Allur búnaður
-  factsPending: "[Frekari tæknilýsingar til staðfestingar]"
-  modelPending: "[Nákvæm gerð til staðfestingar]"
-  projectCategoryPending: "[Flokkur]"
+  factsPending: '[Frekari tæknilýsingar til staðfestingar]'
+  modelPending: '[Nákvæm gerð til staðfestingar]'
+  projectCategoryPending: '[Flokkur]'
   example: Dæmi
   maker: Höfundur
   projectMachines: Tæki í verkefni
-  projectMachinesEmpty: "[Listi yfir tæki sem voru notuð í verkefninu]"
+  projectMachinesEmpty: '[Listi yfir tæki sem voru notuð í verkefninu]'
   projectBack: Til baka í Smíðað í Sögu
   newsBack: Til baka í fréttir
   date: Dagsetning
@@ -61,12 +61,12 @@ labels:
   requirements: Forkröfur
   courseBack: Öll námskeið
 visit:
-  hours: "[Opnunartími]"
+  hours: '[Opnunartími]'
   location: Saga, Hagatorg 1, 107 Reykjavík
-  access: "[Hverjir hafa aðgang]"
+  access: '[Hverjir hafa aðgang]'
   accessDraft: true
-  email: "[netfang]@hi.is"
-  phone: "[Sími]"
+  email: '[netfang]@hi.is'
+  phone: '[Sími]'
   more:
     label: Nánar um heimsókn
     href: /heimsokn/
@@ -74,6 +74,7 @@ footer:
   institution: Háskóli Íslands
   imageNote: Myndirnar eru tölvugerðar myndir af smiðjunni.
 partners:
+  - name: Haskóli Íslands
   - name: Menntavísindasvið HÍ
   - name: Verkfræði- og náttúruvísindasvið HÍ
   - name: Mixtúra, sköpunar- og tækniver skóla- og frístundasviðs Reykjavíkurborgar
