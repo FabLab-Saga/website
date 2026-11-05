@@ -4,7 +4,7 @@ description: "[Lýsing fréttar]"
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r07.webp
+  src: /src/assets/uploads/thrividdarprentarar.webp
   alt: Þrívíddarprentarar í svörtum hillum.
 category: prent
 kind: news

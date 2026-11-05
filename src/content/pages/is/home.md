@@ -22,7 +22,7 @@ about:
     skóla- og frístundastarfi. Smiðjan byggir þannig brú milli háskólasamfélags og vettvangs
     menntunar.
   image:
-    src: /src/assets/uploads/r10.webp
+    src: /src/assets/uploads/vinnurymi.webp
     alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
 equipment:
   title: Búnaður

@@ -19,7 +19,7 @@ policy: Staðfesta þarf efni og aðgang með starfsfólki áður en tækið er 
   vinnustykkis segir ekki til um hversu þykkt efni leysirinn getur skorið.
 policyDraft: true
 image:
-  src: /src/assets/uploads/r15.webp
+  src: /src/assets/uploads/geislaskerar.webp
   alt: Tölvugerð mynd af vinnurými smiðjunnar.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: "SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki

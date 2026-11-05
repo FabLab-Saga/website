@@ -4,7 +4,7 @@ description: "[Lýsing á efni kynningar og því sem þátttakendur fá að pr�
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r15.webp
+  src: /src/assets/uploads/geislaskerar-naermynd.webp
   alt: Laserskeri á bekk við glugga.
 category: laser
 time: "[Tími]"

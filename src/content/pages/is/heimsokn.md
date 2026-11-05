@@ -3,7 +3,7 @@ title: Heimsókn
 description: Hér verða upplýsingar um opnunartíma, aðgang og leiðina í smiðjuna.
 published: true
 image:
-  src: /src/assets/uploads/r10.webp
+  src: /src/assets/uploads/yfirsyn.webp
   alt: Tölvugerð yfirlitsmynd af vinnusal smiðjunnar.
 imageCaption: Tölvugerð mynd af vinnusal smiðjunnar.
 blocks:

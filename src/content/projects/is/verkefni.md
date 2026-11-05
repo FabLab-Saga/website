@@ -4,7 +4,7 @@ description: "[Stutt lýsing á verkefninu og hugmyndinni að baki því]"
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r15.webp
+  src: /src/assets/uploads/vinnurymi.webp
   alt: Tölvugerð mynd af smiðjunni í stað verkefnismyndar.
 imageCaption: Dæmi um framsetningu. Tölvugerð mynd, ekki mynd af verkefni.
 maker: "[Nafn höfundar]"

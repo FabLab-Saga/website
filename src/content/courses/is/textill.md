@@ -4,7 +4,7 @@ description: "[Lýsing á efni kynningar og því sem þátttakendur fá að pr�
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r20.webp
+  src: /src/assets/uploads/textilsvaedi.webp
   alt: Saumavélar á vinnuborði við glugga.
 category: textill
 time: "[Tími]"

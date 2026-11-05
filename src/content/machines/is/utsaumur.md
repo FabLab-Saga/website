@@ -10,7 +10,7 @@ specs: []
 policy: "[Reglur um aðgang, bókun og notkun]"
 policyDraft: true
 image:
-  src: /src/assets/uploads/r10.webp
+  src: /src/assets/uploads/saumavelar.webp
   alt: Tölvugerð mynd af vinnurými smiðjunnar.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki herbergisnúmer.

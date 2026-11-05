@@ -18,7 +18,7 @@ policy: Bókun, efnisgjald og reglur um lengri prentanir eru til staðfestingar.
   prentsnið með starfsfólki.
 policyDraft: true
 image:
-  src: /src/assets/uploads/r07.webp
+  src: /src/assets/uploads/thrividdarprentarar.webp
   alt: Tölvugerð mynd af svæði þrívíddarprentara.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: "SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki

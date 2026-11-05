@@ -13,7 +13,7 @@ policy: Tæki, efni, fræsibitur og festing þurfa að vera yfirfarin með starf
   og bókun eru drög.
 policyDraft: true
 image:
-  src: /src/assets/uploads/r13.webp
+  src: /src/assets/uploads/fraesivel.webp
   alt: Tölvugerð mynd af vinnurými smiðjunnar.
 imageCaption: Tölvugerð mynd af smiðjunni. Ljósmynd af tækinu kemur síðar.
 source: SagaModel/MACHINES.md — staðfestur tækjalisti. Staðsetning er skipulagsrými, ekki

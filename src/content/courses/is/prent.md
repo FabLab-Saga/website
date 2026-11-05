@@ -4,7 +4,7 @@ description: "[Lýsing á efni kynningar og því sem þátttakendur fá að pr�
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r07.webp
+  src: /src/assets/uploads/thrividdarprentarar.webp
   alt: Tölvugerð mynd af svæði þrívíddarprentara.
 imageCaption: Tölvugerð mynd af smiðjunni.
 category: prent

@@ -4,7 +4,7 @@ description: Fab Lab SAGA er ný sköpunar- og tæknismiðja sem er að rísa í
   háskóla Fab Lab sinnar tegundar á Íslandi.
 published: true
 image:
-  src: /src/assets/uploads/r10.webp
+  src: /src/assets/uploads/vinnurymi.webp
   alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
 imageCaption: Tölvugerð mynd af smiðjunni.
 blocks:

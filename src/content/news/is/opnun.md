@@ -5,8 +5,8 @@ description: Fab Lab SAGA er ný sköpunar- og tæknismiðja sem er að rísa í
 published: false
 date: "[Dagsetning]"
 image:
-  src: /src/assets/uploads/r10.webp
-  alt: Vinnusalur með löngum borðum og litríkum skilrúmum.
+  src: /src/assets/uploads/smidjan.webp
+  alt: Vinnusalur smiðjunnar með löngum borðum og merki Fab Lab SAGA á veggnum.
 category: laser
 kind: news
 imageCaption: Tölvugerð mynd af smiðjunni.
