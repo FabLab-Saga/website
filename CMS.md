@@ -55,7 +55,7 @@ Open `http://127.0.0.1:4321/admin/` in Chrome or Edge, choose **Work with Local 
 
 ## Editing online
 
-The CMS signs editors in with their GitHub accounts. Write access to this repository is the permission. Because the site is static, a small authentication Worker (Sveltia CMS Authenticator on Cloudflare Workers) exchanges the GitHub OAuth code. Its URL is `backend.base_url` in the CMS config, and the setup is still being completed.
+The CMS signs editors in with their GitHub accounts. Write access to this repository is the permission. Because the site is static, a small authentication Worker (Sveltia CMS Authenticator on Cloudflare Workers) exchanges the GitHub OAuth code. Its URL is `backend.base_url` in the CMS config.
 
 ## Build
 

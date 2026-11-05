@@ -44,7 +44,7 @@ const s = (await getEntry('site', 'is'))!.data;
   <script>
     // Same-document view transitions (Chromium, Safari, Firefox 144+) via Astro's ClientRouter.
     // withastro/astro#14135 (Firefox loading lazy images eagerly after a swap) does not
-    // reproduce in Firefox 157/159, so Astro's default swap is kept (see round2/ROUND2.md).
+    // reproduce in Firefox 157/159, so Astro's default swap is kept.
     // After a swap, keyboard focus starts at the top of the new page, as after a full load
     // (Tab reaches the skip link first). The router announces the new <title>.
     document.addEventListener('astro:after-swap', () => {
