@@ -1,21 +1,25 @@
 ---
 title: LoKLiK vínylskeri
-description: ''
+description: Þetta er vínlyskeri vúhú  (Eða er þetta úlfur????)
 published: false
-category: ''
-quantity: null
-modelConfirmed: false
-location: ''
+category: skurdur
+quantity: 1
+modelConfirmed: true
+location: Skurðarhorn
 image:
-  src: ''
-  alt: ''
+  src: /src/assets/uploads/brother-saumavel.webp
+  alt: Vínlúlfur
   placeholder: false
-imageCaption: ''
+imageCaption: IMAWDIMasd
 specs: []
-source: ''
-uses: []
-checklist: []
+source: Ritstjóri heimilar
+uses:
+  - Bein og kjöt
+checklist:
+  - prumpiprump
 related: []
-policy: ''
+policy: úlfur
 policyDraft: true
 ---
+
+Úlfur Úlfur
