@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Gakktu um Fab Lab SAGA í Sögu við Hagatorg: tækin, svæðin og hvað hvert tæki gerir.">
+<meta name="theme-color" content="#EDEBE6">
+<title>Fab Lab SAGA · Smiðjan í þrívídd</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/three.module.js",
+  "three/addons/": "./vendor/three/addons/",
+  "three-mesh-bvh": "./vendor/three-mesh-bvh/index.module.js"
+} }
+</script>
+</head>
+<body>
+<a class="skip" href="#tools">Fara í valmynd</a>
+<canvas id="c" aria-label="Þrívítt líkan af Fab Lab SAGA" role="img" tabindex="-1"></canvas>
+
+<header class="top" id="tools">
+  <a class="mark" href="https://fablab-saga.github.io/website/" aria-label="Fab Lab SAGA, vefur smiðjunnar"><span aria-hidden="true" id="logo"></span></a>
+  <nav class="nav" aria-label="Valmynd">
+    <ul>
+      <li><button type="button" id="bTour" aria-pressed="false">Skoðunarferð</button></li>
+      <li><button type="button" id="bList" aria-expanded="false" aria-controls="list">Tækjakostur</button></li>
+      <li><button type="button" id="bOverview">Yfirsýn</button></li>
+      <li class="walk-only"><button type="button" id="bWalk" aria-pressed="false">Ganga um</button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Guided tour -->
+<section id="tour" class="tour" aria-label="Skoðunarferð" hidden>
+  <p class="tour-count" id="tCount"></p>
+  <h2 id="tTitle"></h2>
+  <p class="tour-text" id="tText" aria-live="polite"></p>
+  <div class="tour-ctl">
+    <button type="button" id="tPrev">Fyrri</button>
+    <button type="button" id="tPlay" aria-pressed="true">Hlé</button>
+    <button type="button" id="tNext">Næsta</button>
+    <button type="button" id="tClose" class="quiet">Loka</button>
+  </div>
+  <div class="tour-bar" aria-hidden="true"><span id="tBar"></span></div>
+</section>
+
+<!-- Machine list -->
+<aside id="list" class="side" aria-labelledby="listTitle" hidden>
+  <div class="side-head">
+    <h2 id="listTitle">Tækjakostur</h2>
+    <button type="button" class="close" id="listClose">Loka</button>
+  </div>
+  <label class="search"><span class="vh">Leita að tæki</span><input id="q" type="search" placeholder="Leita að tæki" autocomplete="off" spellcheck="false"></label>
+  <div id="groups"></div>
+  <p class="empty" id="qEmpty" hidden>Ekkert tæki passar við leitina.</p>
+</aside>
+
+<!-- Machine panel -->
+<aside id="panel" class="side" aria-labelledby="pTitle" hidden>
+  <div class="side-head">
+    <p class="category-name" id="pCat"></p>
+    <button type="button" class="close" id="pClose">Loka</button>
+  </div>
+  <h2 id="pTitle" tabindex="-1"></h2>
+  <figure class="p-fig" id="pFig"><img id="pImg" alt="" width="960" height="540"></figure>
+  <p class="p-desc" id="pDesc"></p>
+  <dl class="specs" id="pSpecs"></dl>
+  <div id="pUses"></div>
+  <div id="pCourses"></div>
+  <p class="p-more"><a id="pLink" href="#" target="_blank" rel="noopener">Nánar á vef smiðjunnar <span aria-hidden="true">→</span></a></p>
+  <p class="p-back"><button type="button" id="pBack" class="link">Allur tækjakostur</button></p>
+</aside>
+
+<div id="hover" class="lbl" hidden></div>
+<p id="help" class="help"></p>
+<div id="cross" aria-hidden="true"></div>
+
+<!-- Loading -->
+<div id="loading" role="status" aria-live="polite">
+  <div class="load-inner">
+    <span class="load-mark" id="loadLogo" aria-hidden="true"></span>
+    <div class="bar"><span id="prog"></span></div>
+    <p id="ltext">Hleð smiðjunni</p>
+  </div>
+</div>
+
+<!-- Without WebGL -->
+<div id="fallback" hidden>
+  <header class="top"><a class="mark" href="https://fablab-saga.github.io/website/" aria-label="Fab Lab SAGA, vefur smiðjunnar"><span aria-hidden="true" class="fb-logo"></span></a></header>
+  <main class="fb-main">
+    <h1>Fab Lab SAGA</h1>
+    <p class="lede">Smiðjan í Sögu við Hagatorg. Þessi vafri getur ekki sýnt þrívíða líkanið, svo hér er yfirlitsmynd af smiðjunni og allur tækjakosturinn.</p>
+    <figure class="fb-fig"><img src="img/yfirsyn.webp" alt="Yfirlitsmynd af Fab Lab SAGA án lofts: vinnuborð í miðju, laserrými, prentstöð og fræsirými." width="1600" height="900"></figure>
+    <h2>Tækjakostur</h2>
+    <div id="fbGroups"></div>
+  </main>
+</div>
+
+<noscript><p class="noscript">Fab Lab SAGA: <a href="https://fablab-saga.github.io/website/taeki/">tækjakostur smiðjunnar</a>.</p></noscript>
+<script>
+  // a script that fails to load (or a stalled link) gets a clear message instead of a stuck progress bar
+  addEventListener('error', function (e) { if (e.target && e.target.tagName === 'SCRIPT') failLoad(); }, true);
+  function failLoad() { var t = document.getElementById('ltext'); if (t && !window.sagaReady) { t.textContent = 'Ekki tókst að hlaða smiðjunni. Reyndu að endurhlaða síðuna.'; } }
+</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>

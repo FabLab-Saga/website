@@ -1,0 +1,534 @@
+{
+ "categories": [
+  {
+   "slug": "laser",
+   "title": "Laserskerar",
+   "description": "Skurður og leturgröftur með leysi.",
+   "shape": "r-tl",
+   "colour": "pink"
+  },
+  {
+   "slug": "fraesi",
+   "title": "Fræsivél",
+   "description": "Fræsing í plötuefni og smærri vinnustykki.",
+   "shape": "sq",
+   "colour": "orange"
+  },
+  {
+   "slug": "prent",
+   "title": "Þrívíddarprentarar",
+   "description": "Þrívíð form, líkön og frumgerðir úr plasti.",
+   "shape": "half-up",
+   "colour": "red"
+  },
+  {
+   "slug": "rafeinda",
+   "title": "Rafeindatækni",
+   "description": "Fræsing prentrása og vinna með rafeindabúnað.",
+   "shape": "circle",
+   "colour": "red"
+  },
+  {
+   "slug": "skurdur",
+   "title": "Vínylskerar og skurðarvélar",
+   "description": "Skurður í vínyl, pappír og önnur þunn efni.",
+   "shape": "r-tr",
+   "colour": "yellow"
+  },
+  {
+   "slug": "formmotun",
+   "title": "Formmótun",
+   "description": "Mótun hitaplasts yfir mót.",
+   "shape": "half",
+   "colour": "blue"
+  },
+  {
+   "slug": "textill",
+   "title": "Saumavélar",
+   "description": "Saumur, útsaumur og vinna með textíl.",
+   "shape": "r-bl",
+   "colour": "pink"
+  },
+  {
+   "slug": "hitapressur",
+   "title": "Hitapressur",
+   "description": "Áprentun á textíl, bolla og smærri hluti.",
+   "shape": "arch",
+   "colour": "green"
+  },
+  {
+   "slug": "skanni",
+   "title": "Þrívíddarskanni",
+   "description": "Stafræn þrívíddarlíkön af hlutum.",
+   "shape": "r-br",
+   "colour": "blue"
+  }
+ ],
+ "machines": [
+  {
+   "slug": "epilog",
+   "title": "Epilog Fusion Edge 24",
+   "description": "Epilog Fusion Edge 24 er CO₂-leysir til skurðar og leturgröfturs. Hann hentar meðal annars fyrir líkanagerð, skilti og flata hluti sem eru settir saman.",
+   "category": "laser",
+   "quantity": 1,
+   "location": "Laserrými",
+   "specs": [
+    {
+     "label": "Hámarkssvæði leturgröfturs",
+     "value": "610 × 610 mm"
+    },
+    {
+     "label": "Hámarksþykkt vinnustykkis",
+     "value": "254 mm"
+    }
+   ],
+   "uses": [
+    "Líkanagerð og samsettir hlutir",
+    "Skilti og leturgröftur",
+    "Viður, akrýl og pappír — efnisval í samráði við starfsfólk"
+   ],
+   "image": {
+    "src": "img/epilog.webp",
+    "alt": "Epilog Fusion Edge 24 á eigin undirstöðu í laserrýminu."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/epilog/",
+   "courses": [
+    {
+     "title": "Kynning á leysiskurði",
+     "url": "https://fablab-saga.github.io/website/namskeid/namskeid/"
+    }
+   ]
+  },
+  {
+   "slug": "glowforge-aura",
+   "title": "Glowforge Aura",
+   "description": null,
+   "category": "laser",
+   "quantity": 1,
+   "location": "Laserrými",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/glowforge-aura.webp",
+    "alt": "Grænn laserskeri og hvít tæki á ljósum viðarskápum við svartar hillur og stóra glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/glowforge-aura/",
+   "courses": [
+    {
+     "title": "Kynning á leysiskurði",
+     "url": "https://fablab-saga.github.io/website/namskeid/namskeid/"
+    }
+   ]
+  },
+  {
+   "slug": "glowforge-pro",
+   "title": "Glowforge Pro HD",
+   "description": null,
+   "category": "laser",
+   "quantity": 2,
+   "location": "Laserrými",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/glowforge-pro.webp",
+    "alt": "Grænn laserskeri og hvít tæki á ljósum viðarskápum við svartar hillur og stóra glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/glowforge-pro/",
+   "courses": [
+    {
+     "title": "Kynning á leysiskurði",
+     "url": "https://fablab-saga.github.io/website/namskeid/namskeid/"
+    }
+   ]
+  },
+  {
+   "slug": "xtool",
+   "title": "xTool F1 Ultra",
+   "description": null,
+   "category": "laser",
+   "quantity": 1,
+   "location": "Laserrými",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/xtool.webp",
+    "alt": "Grænn xTool F1 Ultra á bekk við glugga, með stjórnborði við hliðina."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/xtool/",
+   "courses": [
+    {
+     "title": "Kynning á leysiskurði",
+     "url": "https://fablab-saga.github.io/website/namskeid/namskeid/"
+    }
+   ]
+  },
+  {
+   "slug": "shopbot",
+   "title": "ShopBot PRSalpha",
+   "description": "ShopBot PRSalpha er stór CNC-fræsari fyrir plötuefni og þrívíða vinnslu. Hann nýtist til að skera út hluti, fræsa vasa og búa til mót; nákvæm borðstærð uppsetta tækisins er enn til staðfestingar.",
+   "category": "fraesi",
+   "quantity": 1,
+   "location": "Fræsirými",
+   "specs": [],
+   "uses": [
+    "Útskurður og samsetningar úr plötuefni",
+    "Mót og þrívíð fræsing",
+    "Viður og viðarplötur — efnisval í samráði við starfsfólk"
+   ],
+   "image": {
+    "src": "img/shopbot.webp",
+    "alt": "Stór fræsivél við glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/shopbot/",
+   "courses": []
+  },
+  {
+   "slug": "bambu",
+   "title": "Bambu Lab P2S",
+   "description": null,
+   "category": "prent",
+   "quantity": 1,
+   "location": "Prentstöð",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/bambu.webp",
+    "alt": "Þrívíddarprentarar í svörtum hillum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/bambu/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "cr10max",
+   "title": "Creality CR-10 Max",
+   "description": null,
+   "category": "prent",
+   "quantity": 1,
+   "location": "Bekkur fyrir stórprentun og leir",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/cr10max.webp",
+    "alt": "Creality CR-10 Max með opinni grind og stórum prentfleti á bekk við glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/cr10max/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "cr200b",
+   "title": "Creality CR-200B",
+   "description": null,
+   "category": "prent",
+   "quantity": 3,
+   "location": "Prentstöð",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/cr200b.webp",
+    "alt": "Þrívíddarprentarar í svörtum hillum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/cr200b/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "flashforge",
+   "title": "Flashforge",
+   "description": null,
+   "category": "prent",
+   "quantity": 1,
+   "location": "Prentstöð",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/flashforge.webp",
+    "alt": "Þrívíddarprentarar í svörtum hillum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/flashforge/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "leir",
+   "title": "Leirprentari",
+   "description": null,
+   "category": "prent",
+   "quantity": 1,
+   "location": "Bekkur fyrir stórprentun og leir",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/leir.webp",
+    "alt": "Hvítur leirprentari með leirhlut á prentfletinum og slöngu á bekknum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/leir/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "prusa",
+   "title": "Original Prusa i3 MK3S+",
+   "description": "Sjö Original Prusa i3 MK3S+ prentarar mynda prentaraflota smiðjunnar. Þeir prenta þrívíð líkön lag fyrir lag úr plastþræði og henta fyrir frumgerðir, kennslulíkön og smærri hluti.",
+   "category": "prent",
+   "quantity": 7,
+   "location": "Prentstöð",
+   "specs": [
+    {
+     "label": "Prentsvæði hvers prentara",
+     "value": "250 × 210 × 210 mm"
+    },
+    {
+     "label": "Þvermál plastþráðar",
+     "value": "1,75 mm"
+    }
+   ],
+   "uses": [
+    "Frumgerðir og samsetningarprófanir",
+    "Kennslulíkön og smærri hlutir",
+    "PLA og PETG — efnisval í samráði við starfsfólk"
+   ],
+   "image": {
+    "src": "img/prusa.webp",
+    "alt": "Þrívíddarprentarar í svörtum hillum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/prusa/",
+   "courses": [
+    {
+     "title": "Kynning á þrívíddarprentun",
+     "url": "https://fablab-saga.github.io/website/namskeid/prent/"
+    }
+   ]
+  },
+  {
+   "slug": "srm20",
+   "title": "Roland monoFab SRM-20",
+   "description": null,
+   "category": "rafeinda",
+   "quantity": 2,
+   "location": "Rafeindabekkur",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/srm20.webp",
+    "alt": "Tvö hvít lokuð tæki á vinnubekk í rafeindaverkstæði, með smáhlutaskúffum og vírakeflum á veggnum."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/srm20/",
+   "courses": []
+  },
+  {
+   "slug": "cricut",
+   "title": "Cricut Maker",
+   "description": null,
+   "category": "skurdur",
+   "quantity": 1,
+   "location": "Skurðarhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/cricut.webp",
+    "alt": "Vinnuborð með skurðarmottum og borðtækjum fyrir framan appelsínugul og græn skilrúm."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/cricut/",
+   "courses": []
+  },
+  {
+   "slug": "cricut3",
+   "title": "Cricut Maker 3",
+   "description": null,
+   "category": "skurdur",
+   "quantity": 1,
+   "location": "Skurðarhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/cricut3.webp",
+    "alt": "Vinnuborð með skurðarmottum og borðtækjum fyrir framan appelsínugul og græn skilrúm."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/cricut3/",
+   "courses": []
+  },
+  {
+   "slug": "gs24",
+   "title": "Roland CAMM-1 GS-24",
+   "description": null,
+   "category": "skurdur",
+   "quantity": 2,
+   "location": "Skurðarhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/gs24.webp",
+    "alt": "Vinnuborð með skurðarmottum og borðtækjum fyrir framan appelsínugul og græn skilrúm."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/gs24/",
+   "courses": []
+  },
+  {
+   "slug": "formbox",
+   "title": "Mayku FormBox",
+   "description": null,
+   "category": "formmotun",
+   "quantity": 1,
+   "location": "Skurðarhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/formbox.webp",
+    "alt": "Hvít Mayku FormBox á viðarbekk við glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/formbox/",
+   "courses": []
+  },
+  {
+   "slug": "saumavel",
+   "title": "Brother saumavél",
+   "description": null,
+   "category": "textill",
+   "quantity": 1,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/saumavel.webp",
+    "alt": "Hvít Brother-saumavél á vinnuborði með skærum fyrir framan."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/saumavel/",
+   "courses": []
+  },
+  {
+   "slug": "utsaumur",
+   "title": "Brother útsaumsvél SE600",
+   "description": null,
+   "category": "textill",
+   "quantity": 1,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/utsaumur.webp",
+    "alt": "Hvít Brother-útsaumsvél með bláum skjá á vinnuborði."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/utsaumur/",
+   "courses": []
+  },
+  {
+   "slug": "overlock",
+   "title": "Overlock-vél",
+   "description": null,
+   "category": "textill",
+   "quantity": 1,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/overlock.webp",
+    "alt": "Hvít overlock-vél með fjórum litríkum þráðarkeflum á vinnuborði."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/overlock/",
+   "courses": []
+  },
+  {
+   "slug": "easypress",
+   "title": "Cricut EasyPress",
+   "description": null,
+   "category": "hitapressur",
+   "quantity": 2,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/easypress.webp",
+    "alt": "Tvær gráar Cricut EasyPress-hitapressur á undirstöðum í hillu undir vinnuborði."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/easypress/",
+   "courses": []
+  },
+  {
+   "slug": "mugpress",
+   "title": "Cricut Mug Press",
+   "description": null,
+   "category": "hitapressur",
+   "quantity": 1,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/mugpress.webp",
+    "alt": "Hvít Cricut Mug Press með ljósgrænum framfleti og bláum bolla við hliðina."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/mugpress/",
+   "courses": []
+  },
+  {
+   "slug": "loklik",
+   "title": "LOKLiK hitapressa",
+   "description": null,
+   "category": "hitapressur",
+   "quantity": 1,
+   "location": "Textílhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/loklik.webp",
+    "alt": "Grænblá LOKLiK-hitapressa á vinnuborði."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/loklik/",
+   "courses": []
+  },
+  {
+   "slug": "hitapressa",
+   "title": "Stór hitapressa",
+   "description": null,
+   "category": "hitapressur",
+   "quantity": 1,
+   "location": "Bekkur fyrir stórprentun og leir",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/hitapressa.webp",
+    "alt": "Rauð og svört hitapressa með upphækkuðum þrýstifleti á bekk við glugga."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/hitapressa/",
+   "courses": []
+  },
+  {
+   "slug": "skanni",
+   "title": "Handskanni",
+   "description": null,
+   "category": "skanni",
+   "quantity": 1,
+   "location": "Skurðarhorn",
+   "specs": [],
+   "uses": [],
+   "image": {
+    "src": "img/skanni.webp",
+    "alt": "Handskanni á litlum þrífæti við snúningsdisk með bláum hlut og geymslukassa."
+   },
+   "url": "https://fablab-saga.github.io/website/taeki/skanni/",
+   "courses": []
+  }
+ ],
+ "modelBytes": 14980820
+}
