@@ -1129,6 +1129,7 @@ window.addEventListener('keydown', (e) => {
   keys[e.code] = true;
   if (typing(e)) { if (e.key === 'Escape') { closeList(); $('bList').focus(); } return; }
   if (e.key === 'Escape') {
+    if (!$('hover').hidden) { setHover(null); $('hover').hidden = true; return; }   // dismiss the pointer label first
     if (mode === 'walk') { setMode('orbit'); $('bWalk').focus({ preventScroll: true }); }
     else if (!$('panel').hidden) { deselect(); $('bList').focus({ preventScroll: true }); }
     else if (!$('list').hidden) { closeList(); $('bList').focus({ preventScroll: true }); }
@@ -1139,7 +1140,7 @@ window.addEventListener('keydown', (e) => {
   if (tour.active && e.key === 'ArrowRight') { e.preventDefault(); goStop(tour.i + 1); return; }
   if (tour.active && e.key === 'ArrowLeft') { e.preventDefault(); goStop(tour.i - 1); return; }
   if (tour.active && e.key === ' ' && (e.target === document.body || e.target === canvas)) { e.preventDefault(); tour.playing ? pauseTour() : playTour(); return; }
-  if (e.key === '/') { e.preventDefault(); openList(); return; }
+  if (e.key === '/' && e.target === canvas) { e.preventDefault(); openList(); return; }   // single-key shortcut only while the scene has focus
   if (/^(Arrow|Page|Home|End)/.test(e.key) && (e.target === document.body || e.target === canvas)) pauseTour();
 });
 window.addEventListener('keyup', (e) => { keys[e.code] = false; });

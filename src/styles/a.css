@@ -58,10 +58,11 @@ h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.01em}
 .tile img{position:absolute;inset:0}
 .tile:hover,.tile:focus-visible{border-radius:0}
 .tile:focus-visible{outline-offset:-5px;outline-color:white}
-.lbl{position:absolute;background:var(--ink);color:var(--bg);font-weight:700;font-size:16px;white-space:nowrap;line-height:1.2;padding:7px 11px}
+/* One line when it fits; wraps inside the tile under user text spacing or text zoom. */
+.lbl{position:absolute;background:var(--ink);color:var(--bg);font-weight:700;font-size:16px;width:max-content;max-width:100%;overflow-wrap:anywhere;line-height:1.2;padding:7px 11px}
 .tile.r-tl .lbl{right:0;bottom:0}.tile.r-tr .lbl{left:0;bottom:0}
 .tile.half .lbl{left:50%;top:0;transform:translateX(-50%)}
-.tile.circle .lbl{left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap}
+.tile.circle .lbl{left:50%;top:50%;transform:translate(-50%,-50%)}
 
 /* sections */
 section{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
