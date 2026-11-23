@@ -57,7 +57,10 @@ h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.01em}
 .tile{position:relative;overflow:hidden;display:block;background:var(--c,#ccc);transition:border-radius .45s cubic-bezier(.3,.7,.2,1)}
 .tile img{position:absolute;inset:0}
 .tile:hover,.tile:focus-visible{border-radius:0}
-.tile:focus-visible{outline-offset:-5px;outline-color:white}
+/* The photo is positioned over the tile, so an inset outline would be painted under it.
+   A two-tone ring drawn above the photo stays visible on light and dark crops alike. */
+.tile:focus-visible{outline:none}
+.tile:focus-visible::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px var(--ink),inset 0 0 0 6px #fff;pointer-events:none}
 /* One line when it fits; wraps inside the tile under user text spacing or text zoom. */
 .lbl{position:absolute;background:var(--ink);color:var(--bg);font-weight:700;font-size:16px;width:max-content;max-width:100%;overflow-wrap:anywhere;line-height:1.2;padding:7px 11px}
 .tile.r-tl .lbl{right:0;bottom:0}.tile.r-tr .lbl{left:0;bottom:0}
@@ -175,7 +178,7 @@ section{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 @media (min-width:900px) and (max-width:1199px){.lbl{font-size:12px;padding:6px 8px}}
 @media (max-width:360px){.lbl{font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.tile:hover.r-tl,.tile:focus-visible.r-tl{border-top-left-radius:100%}.tile:hover.r-tr,.tile:focus-visible.r-tr{border-top-right-radius:100%}.tile:hover.half,.tile:focus-visible.half{border-radius:0 0 50% 50%/0 0 100% 100%}.tile:hover.circle,.tile:focus-visible.circle{border-radius:50%}}
-@media (forced-colors:active){.deco,.mk{forced-color-adjust:none}.lbl{border:1px solid}}
+@media (forced-colors:active){.deco,.mk{forced-color-adjust:none}.lbl{border:1px solid}.tile:focus-visible{outline:3px solid CanvasText;outline-offset:2px;z-index:1}}
 
 /* Inner pages: the same grid, one top composition, then ink on paper. */
 .mobile-menu{display:none}
