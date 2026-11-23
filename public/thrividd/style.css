@@ -61,7 +61,7 @@ body.no-walk .walk-only{display:none}
 .group li button:hover .n,.group li button:focus-visible .n{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .group li button[aria-current="true"] .n{font-weight:700}
 .q{font-variant-numeric:tabular-nums;white-space:nowrap}
-.empty{margin-top:24px;color:var(--ink2)}
+.empty{margin-top:24px;color:var(--ink2)}.empty:empty{margin:0}
 #list h2{padding-bottom:0}
 
 /* category markers (identity.ts: one abstract shape + colour per category) */
@@ -148,6 +148,20 @@ body.walk .tour{display:none}
   .help{display:none}
   .fb-grid{grid-template-columns:1fr}
 }
+/* An open panel never covers the navigation: on phones the bottom bar stays above the sheet,
+   on wide screens the bar moves left of the panel, and in between it steps aside until the panel closes. */
+@media (max-width:640px){.top{z-index:13}}
+/* Phone bar: the labels fit one row from 420 px with four buttons and from 300 px with three. */
+@media (max-width:640px){.nav ul{gap:0}.side{scroll-padding-bottom:calc(70px + env(safe-area-inset-bottom))}}
+@media (max-width:419px){
+  body:not(.no-walk){--navh:86px}
+  body:not(.no-walk) .nav ul{display:grid;grid-template-columns:1fr 1fr}
+  body:not(.no-walk) .nav button{padding:10px 4px 8px}
+  body:not(.no-walk) .tour{bottom:calc(var(--navh) + env(safe-area-inset-bottom))}
+  body:not(.no-walk) .side{padding-bottom:calc(var(--navh) + 18px + env(safe-area-inset-bottom));scroll-padding-bottom:calc(var(--navh) + 18px + env(safe-area-inset-bottom))}
+}
+@media (min-width:641px){body.panel-open .top{right:calc(var(--side) + var(--pad))}}
+@media (min-width:641px) and (max-width:1239px){body.panel-open .top .nav{visibility:hidden}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (forced-colors:active){.mk{forced-color-adjust:none}.lbl,.tour,.side{border:1px solid}}
 body.clean .top,body.clean .tour,body.clean .help,body.clean .side{display:none!important}

@@ -971,7 +971,8 @@ $('q').addEventListener('input', () => {
   const shownGroups = new Set();
   for (const it of listItems) { const show = !q || it.hay.includes(q); it.li.hidden = !show; if (show) shownGroups.add(it.group); }
   document.querySelectorAll('#groups .group').forEach((g) => { g.hidden = !shownGroups.has(g); });
-  $('qEmpty').hidden = shownGroups.size > 0;
+  const none = shownGroups.size ? '' : $('qEmpty').dataset.none;   // a status region, so screen readers hear an empty result
+  if ($('qEmpty').textContent !== none) $('qEmpty').textContent = none;
 });
 $('q').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') { const first = listItems.find((it) => !it.li.hidden); if (first) first.li.querySelector('button').click(); }
