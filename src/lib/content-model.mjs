@@ -34,7 +34,7 @@ export const schemas = {
   site: z.object({
     name: text('Heiti smiðju'), nav: list('Aðalvalmynd', link),
     labels: object('Sameiginlegir textar', {
-      skip: text('Hoppa í efni'), nav: text('Heiti valmyndar'), menu: text('Opna valmynd'), logo: text('Heiti merkistengils'),
+      skip: text('Hoppa í efni'), nav: text('Heiti valmyndar'), menu: text('Opna valmynd'), logo: text('Heiti merkistengils'), university: text('Heiti háskólamerkis'),
       visit: text('Heimsókn'), hours: text('Opnunartími'), where: text('Hvar'), access: text('Aðgangur'),
       contact: text('Hafa samband'), email: text('Netfang'), phone: text('Sími'), opens: text('Opnar'), draft: text('Drög'),
       newsKind: text('Frétt'), courseKind: text('Námskeið'), eventKind: text('Viðburður'),

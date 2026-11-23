@@ -70,6 +70,10 @@ collections:
                 label: Heiti merkistengils
                 required: true
                 widget: string
+              - name: university
+                label: Heiti háskólamerkis
+                required: true
+                widget: string
               - name: visit
                 label: Heimsókn
                 required: true

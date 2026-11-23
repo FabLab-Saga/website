@@ -27,7 +27,11 @@ const s = (await getEntry('site', 'is'))!.data;
 <body class={bodyClass}>
   <a class="skip" href="#efni">{s.labels.skip}</a>
   <header class="top">
-    <Logo label={s.labels.logo} />
+    <div class="brand">
+      <Logo label={s.labels.logo} />
+      <span class="brand-divider" aria-hidden="true"></span>
+      <a class="hi" href="https://hi.is/"><img src={url('/brand/hi-logo-blatt.svg')} alt={s.labels.university} width="700" height="406" /></a>
+    </div>
     <nav class="nav desktop-nav" aria-label={s.labels.nav}>
       <ul>{s.nav.map((item) => <li><a href={url(item.href)} aria-current={Astro.url.pathname.startsWith(url(item.href)) ? 'page' : undefined}>{item.label}</a></li>)}</ul>
     </nav>
