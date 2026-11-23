@@ -1029,7 +1029,7 @@ canvas.addEventListener('pointerup', (e) => {
   down = null;
   if (moved > 6 || dt > 500) return;
   const slug = pick(e.clientX, e.clientY);
-  if (slug) select(slug);
+  if (slug) { lastPointer = null; setHover(null); $('hover').hidden = true; select(slug); }
 });
 canvas.addEventListener('wheel', userInput, { passive: true });
 orbit.addEventListener('start', () => { move = null; userInput(); });
@@ -1038,6 +1038,32 @@ function userInput() {
   userTook = true; pauseTour(); if (move && !tour.active) move = null;
   if (++inputs === 3) hideHelp();                              // the hint has done its job
 }
+
+const cameraTools = $('cameraTools');
+function adjustView(action) {
+  if (mode !== 'orbit') return;
+  move = null; userInput();
+  const pan = $('cameraMode').value === 'pan', step = Math.PI / 24;
+  const damping = orbit.enableDamping;
+  orbit.enableDamping = false;   // one activation, one immediate camera step
+  if (action === 'in') orbit.dollyIn(0.88);
+  else if (action === 'out') orbit.dollyOut(0.88);
+  else if (action === 'left' || action === 'right') {
+    const sign = action === 'left' ? 1 : -1;
+    if (pan) orbit.pan(-sign * 32, 0); else orbit.rotateLeft(sign * step);
+  } else {
+    const sign = action === 'up' ? 1 : -1;
+    if (pan) orbit.pan(0, -sign * 32); else orbit.rotateUp(sign * step);
+  }
+  orbit.enableDamping = damping;
+}
+cameraTools.addEventListener('click', e => { if (e.target.dataset.view) adjustView(e.target.dataset.view); });
+cameraTools.addEventListener('keydown', e => {
+  if (e.target.tagName !== 'BUTTON' || e.altKey || e.metaKey || e.ctrlKey) return;
+  const action = {ArrowLeft:'left', ArrowRight:'right', ArrowUp:'up', ArrowDown:'down', '+':'in', '=':'in', '-':'out'}[e.key];
+  if (action) { e.preventDefault(); e.stopPropagation(); adjustView(action); }
+});
+$('cameraMode').addEventListener('keydown', e => e.stopPropagation());
 
 // ------------------------------------------------------------ walk mode (desktop)
 const EYE = 1.6, RADIUS = 0.3, SPEED = 1.9, STEP = 0.35;
@@ -1275,6 +1301,7 @@ function bench() {
 }
 function finishLoading() {
   readyShown = true;
+  cameraTools.hidden = false;
   progress.glb = 1; showProgress();
   $('loading').classList.add('done');
   setTimeout(() => $('loading').remove(), 600);

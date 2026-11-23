@@ -32,6 +32,16 @@
       <li class="walk-only"><button type="button" id="bWalk" aria-pressed="false">Ganga um</button></li>
     </ul>
   </nav>
+  <div id="cameraTools" role="group" aria-label="Stýra sjónarhorni" hidden>
+    <select id="cameraMode" aria-label="Virkni örva"><option value="rotate">Snúa</option><option value="pan">Færa</option></select>
+    <button type="button" data-view="left" title="Til vinstri" aria-label="Til vinstri">←</button>
+    <button type="button" data-view="right" title="Til hægri" aria-label="Til hægri">→</button>
+    <button type="button" data-view="up" title="Upp" aria-label="Upp">↑</button>
+    <button type="button" data-view="down" title="Niður" aria-label="Niður">↓</button>
+    <button type="button" data-view="in" title="Nær" aria-label="Nær">+</button>
+    <button type="button" data-view="out" title="Fjær" aria-label="Fjær">−</button>
+    <small>Örvar: snúa eða færa · + / −: aðdráttur</small>
+  </div>
 </header>
 
 <!-- Guided tour -->

@@ -30,6 +30,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .nav button:focus-visible{outline-offset:4px}
 body.no-walk .walk-only{display:none}
 
+/* Keep camera controls beside the model, independently of the bottom navigation. */
+#cameraTools{position:absolute;top:calc(100% + 6px);left:0;display:flex;align-items:center;flex-wrap:wrap;gap:2px;padding:5px;background:var(--bg);width:max-content;max-width:100%;font-size:16px}
+#cameraTools button,#cameraMode{min-height:44px;min-width:44px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--rule)}
+#cameraTools button{font-size:21px}#cameraTools button:focus-visible,#cameraMode:focus-visible{outline:3px solid var(--ink);outline-offset:-4px}
+#cameraTools small{flex-basis:100%;padding:0 3px;font-size:14px}
+#cameraTools{width:350px}body.walk #cameraTools{display:none}
+@media(max-height:550px){body.panel-open #cameraTools,body:has(#tour:not([hidden])) #cameraTools{display:none}}
 /* guided tour */
 .tour{position:fixed;left:var(--pad);bottom:var(--pad);width:min(480px,calc(100vw - 2*var(--pad)));background:var(--bg);padding:21px 24px 0;z-index:9}
 .tour-count{margin:0 0 8px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-variant-numeric:tabular-nums}
